@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development - Phase 1: Spider-Man</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-spider web-swing"></i>
+                <span>Spider-Code</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#html-basics">HTML Basics</a></li>
+                <li><a href="#css-basics">CSS Basics</a></li>
+                <li><a href="#css-layouts">Layouts</a></li>
+                <li><a href="#css-frameworks">Frameworks</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <div class="header-content">
+            <h1>Phase 1: Spider-Man 🕸️</h1>
+            <p>Learn the foundations of web design by mastering HTML and CSS, creating the structure and styling that powers the web. Just like how Peter Parker harnesses his spider abilities, you'll capture the power of web development!</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="html-basics">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h2>1. HTML Basics – The Web's Skeleton</h2>
+            </div>
+            <p>HTML (HyperText Markup Language) is the standard markup language for creating web pages. Think of it as the skeletal structure of your website - just like Spider-Man's agility depends on his bones, your website depends on HTML!</p>
+            
+            <h3>HTML Tags and Elements</h3>
+            <p>HTML uses "tags" to create elements. Tags are enclosed in angle brackets, like <code>&lt;tagname&gt;</code>. Most tags come in pairs: an opening tag and a closing tag with a slash: <code>&lt;tagname&gt;Content&lt;/tagname&gt;</code>.</p>
+            
+            <h3>Basic Structure of an HTML Document</h3>
+            <div class="example">
+                <div class="example-title">Example Structure</div>
+                <code>
+                    &lt;!DOCTYPE html&gt;<br>
+                    &lt;html&gt;<br>
+                    &nbsp;&nbsp;&lt;head&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Page Title&lt;/title&gt;<br>
+                    &nbsp;&nbsp;&lt;/head&gt;<br>
+                    &nbsp;&nbsp;&lt;body&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;This is a Heading&lt;/h1&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;This is a paragraph.&lt;/p&gt;<br>
+                    &nbsp;&nbsp;&lt;/body&gt;<br>
+                    &lt;/html&gt;
+                </code>
+            </div>
+            
+            <div class="interactive-example">
+                <h4>See it in action</h4>
+                <p>This is how a basic HTML structure renders in the browser:</p>
+                <div class="result-preview">
+                    <h1 style="color: #333; font-size: 24px;">This is a Heading</h1>
+                    <p>This is a paragraph.</p>
+                </div>
+            </div>
+            
+            <h3>Semantic HTML</h3>
+            <p>Semantic HTML uses tags that convey meaning about the content they contain. Just like how Spider-Man's spider-sense gives meaning to his surroundings, semantic HTML gives meaning to your content:</p>
+            <ul>
+                <li><code>&lt;header&gt;</code> - Page header or section header</li>
+                <li><code>&lt;nav&gt;</code> - Navigation links</li>
+                <li><code>&lt;main&gt;</code> - Main content of the page</li>
+                <li><code>&lt;article&gt;</code> - Self-contained content</li>
+                <li><code>&lt;section&gt;</code> - Thematic grouping of content</li>
+                <li><code>&lt;aside&gt;</code> - Content related to the main content</li>
+                <li><code>&lt;footer&gt;</code> - Page footer or section footer</li>
+            </ul>
+        </section>
+
+        <section id="html-forms">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-wpforms"></i>
+                </div>
+                <h2>2. HTML Forms and Inputs – User Interaction</h2>
+            </div>
+            <p>Forms allow users to input data and send it to a server. They are essential for interactive websites, much like how Spider-Man interacts with the citizens of New York!</p>
+            
+            <h3>Creating Forms</h3>
+            <p>The <code>&lt;form&gt;</code> element creates a form, and the <code>action</code> attribute specifies where to send the form data:</p>
+            <div class="example">
+                <div class="example-title">Form Example</div>
+                <code>
+                    &lt;form action="/submit-form" method="post"&gt;<br>
+                    &nbsp;&nbsp;&lt;label for="name"&gt;Name:&lt;/label&gt;<br>
+                    &nbsp;&nbsp;&lt;input type="text" id="name" name="name" required&gt;<br>
+                    &nbsp;&nbsp;<br>
+                    &nbsp;&nbsp;&lt;label for="email"&gt;Email:&lt;/label&gt;<br>
+                    &nbsp;&nbsp;&lt;input type="email" id="email" name="email" required&gt;<br>
+                    &nbsp;&nbsp;<br>
+                    &nbsp;&nbsp;&lt;button type="submit"&gt;Submit&lt;/button&gt;<br>
+                    &lt;/form&gt;
+                </code>
+            </div>
+            
+            <div class="interactive-example">
+                <h4>Interactive Form Demo</h4>
+                <form>
+                    <div style="margin-bottom: 15px;">
+                        <label for="demo-name" style="display: block; margin-bottom: 5px;">Name:</label>
+                        <input type="text" id="demo-name" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; width: 100%;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label for="demo-email" style="display: block; margin-bottom: 5px;">Email:</label>
+                        <input type="email" id="demo-email" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; width: 100%;">
+                    </div>
+                    <button type="button" style="background-color: #e23636; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">Submit</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Additional sections would follow with similar enhancements -->
+
+        <section id="css-basics">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-paint-brush"></i>
+                </div>
+                <h2>3. CSS Basics – Styling the Web</h2>
+            </div>
+            <p>CSS (Cascading Style Sheets) is used to style HTML elements. It controls colors, fonts, spacing, and more. Think of it as Spider-Man's suit - it gives personality and style to the web!</p>
+            
+            <h3>CSS Syntax</h3>
+            <div class="example">
+                <div class="example-title">CSS Syntax</div>
+                <code>
+                    selector {<br>
+                    &nbsp;&nbsp;property: value;<br>
+                    &nbsp;&nbsp;another-property: value;<br>
+                    }
+                </code>
+            </div>
+            
+            <div class="interactive-example">
+                <h4>See CSS in Action</h4>
+                <p>CSS can transform plain HTML into visually appealing content:</p>
+                <div class="result-preview">
+                    <div style="display: flex; gap: 20px;">
+                        <div style="flex: 1;">
+                            <strong>Without CSS:</strong><br>
+                            <div style="border: 1px solid #ccc; padding: 10px; margin-top: 5px;">
+                                <p>This is a plain paragraph.</p>
+                                <button>Plain Button</button>
+                            </div>
+                        </div>
+                        <div style="flex: 1;">
+                            <strong>With CSS:</strong><br>
+                            <div style="border: 1px solid #ccc; padding: 10px; margin-top: 5px;">
+                                <p style="color: #0066cc; font-family: 'Poppins'; font-size: 16px;">This is a styled paragraph.</p>
+                                <button style="background-color: #e23636; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">Styled Button</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2023 Web Development Course - Phase 1: Spider-Man 🕸️</p>
+            <p>Master web development by understanding the foundations of HTML and CSS!</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+    ## **Phase 2: JavaScript Surgeons 🧑🏻‍⚕️**
+
+    **Objective:** Master the fundamentals and advanced concepts of JavaScript, as well as the DOM, to become proficient in scripting dynamic web pages.
+    
+    ### 1. **JavaScript Basics – The Language of the Web**
+    
+    - Introduction to JavaScript and its role in web development
+    - Understanding variables and data types: `string`, `number`, `boolean`, `object`, `array`, `null`, `undefined`
+    - Declaring variables with `var`, `let`, `const`
+    - Understanding scope (Global, Local, Block Scope) and hoisting
+    - Basic operators: `+`, , , `/`, `%`, `==`, `===`
+    - Control flow statements: `if`, `else`, `else if`, `switch`, `ternary operator`
+    - **Key Concepts:** Variables, Data Types, Operators, Conditionals
+    
+    ### 2. **Functions – Building Blocks of JavaScript**
+    
+    - What is a function and why it’s essential in JavaScript
+    - Function declaration vs function expression
+    - Arrow functions and their syntax
+    - Understanding the `return` statement and function parameters
+    - Function scope and closures
+    - **Key Concepts:** Function declaration, Function expression, Arrow functions, Closures, Parameters, Return
+    
+    ### 3. **Arrays and Objects – Working with Data**
+    
+    - Creating and manipulating arrays: `push`, `pop`, `shift`, `unshift`, `map`, `filter`, `reduce`
+    - Understanding objects: properties, methods, and prototypes
+    - Accessing and modifying object properties
+    - Iterating over arrays and objects using loops (`for`, `for...of`, `for...in`)
+    - **Key Concepts:** Arrays, Objects, Loops, Array methods, Object methods
+    
+    ### 4. **Asynchronous JavaScript – Handling Time-sensitive Code**
+    
+    - What is asynchronous programming and why it’s important
+    - Using `setTimeout` and `setInterval`
+    - Introduction to callbacks and callback hell
+    - Promises: What they are, how to create and use them
+    - `async` and `await` for handling asynchronous code in a more readable way
+    - **Key Concepts:** Callbacks, Promises, Async/Await, `setTimeout`, `setInterval`
+    
+    ### 5. **JavaScript and the DOM – Interacting with the Browser**
+    
+    - What is the DOM (Document Object Model)?
+    - Accessing and modifying HTML elements with `document.getElementById()`, `document.querySelector()`, and `document.querySelectorAll()`
+    - Changing content using `innerHTML`, `textContent`, `value`
+    - Manipulating styles with `style` property and changing CSS dynamically
+    - Adding and removing elements with `appendChild()`, `removeChild()`, `insertBefore()`
+    - **Key Concepts:** DOM Manipulation, Querying elements, Modifying styles and content
+    
+    ### 6. **Event Handling – Making Web Pages Interactive**
+    
+    - Introduction to events in JavaScript: `click`, `hover`, `keydown`, `submit`, etc.
+    - Event listeners and attaching them using `addEventListener()`
+    - Understanding event bubbling and capturing
+    - Preventing default behavior and stopping propagation with `event.preventDefault()` and `event.stopPropagation()`
+    - **Key Concepts:** Event handling, Event listeners, Event propagation
+    
+    ### 7. **Object-Oriented JavaScript – Mastering Objects and Classes**
+    
+    - Introduction to object-oriented programming (OOP) in JavaScript
+    - Defining classes and objects in JavaScript
+    - Using constructors and `this` keyword
+    - Inheritance and the prototype chain
+    - Polymorphism and encapsulation
+    - **Key Concepts:** Classes, Objects, Constructors, Inheritance, Prototypes
+    
+    ### 8. **Advanced JavaScript Concepts – Deep Dive**
+    
+    - Understanding closures and lexical scoping
+    - Understanding the `this` keyword in different contexts
+    - JavaScript `this` binding and call, apply, and bind methods
+    - JavaScript modules and how to use `import` and `export`
+    - Error handling in JavaScript with `try...catch` and custom errors
+    - **Key Concepts:** Closures, `this` keyword, Binding, Modules, Error handling
+    
+    ### 9. **JavaScript ES6+ Features – Modern JavaScript Syntax**
+    
+    - Destructuring assignment for objects and arrays
+    - Template literals and string interpolation
+    - Default parameters, rest parameters, and spread syntax
+    - Introduction to `Map`, `Set`, `WeakMap`, `WeakSet`
+    - **Key Concepts:** ES6 syntax, Destructuring, Template literals, Spread/rest operators, `Map` & `Set`
+    
+</body>
+</html>

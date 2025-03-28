@@ -1,0 +1,976 @@
+Phase 2: JavaScript Surgeons 🧑🏻‍⚕️ - Complete Learning Guide
+1. JavaScript Basics – The Language of the Web
+Introduction to JavaScript
+JavaScript is a versatile programming language primarily used for creating interactive elements on websites. Unlike HTML (structure) and CSS (presentation), JavaScript adds behavior to web pages.
+
+Key roles of JavaScript:
+
++Dynamic content updates
++Form validation
++Animations and visual effects
++Responding to user events
++Communicating with servers (APIs)
+Variables and Data Types
+JavaScript has several fundamental data types:
+// Primitive data types
+let myString = "Hello World";        // String - text
+let myNumber = 42;                   // Number - integers and decimals
+let isActive = true;                 // Boolean - true/false
+let noValue = null;                  // Null - intentional absence of value
+let notDefined;                      // Undefined - variable declared but not assigned
+
+// Reference data types
+let myArray = [1, 2, 3, "apple"];    // Array - ordered collection
+let myObject = {                     // Object - collection of key-value pairs
+  name: "John",
+  age: 30
+};
+
+Visual representation of data types:
+┌───────────────────────────────────┐
+│       JavaScript Data Types       │
+├───────────────┬───────────────────┤
+│  Primitive    │    Reference      │
+├───────────────┼───────────────────┤
+│  • String     │    • Object       │
+│  • Number     │    • Array        │
+│  • Boolean    │    • Function     │
+│  • Null       │    • Date         │
+│  • Undefined  │    • RegExp       │
+│  • Symbol     │    • Map/Set      │
+│  • BigInt     │                   │
+└───────────────┴───────────────────┘
+
+Variable Declaration
+Best practice: Use const by default, and only use let when you need to reassign values.
+// var - function scoped, can be redeclared (avoid in modern code)
+var oldSchool = "I'm function scoped";
+
+// let - block scoped, can be reassigned
+let counter = 0;
+counter = 1; // Valid reassignment
+
+// const - block scoped, cannot be reassigned
+const PI = 3.14159;
+// PI = 3; // Error: Assignment to constant variable
+
+Understanding Scope
+// Global scope - accessible everywhere
+const globalVar = "I'm global!";
+
+function exampleFunction() {
+  // Function scope - accessible only inside this function
+  const functionVar = "I'm function-scoped";
+  
+  if (true) {
+    // Block scope - accessible only inside this block
+    const blockVar = "I'm block-scoped";
+    let blockLet = "I'm also block-scoped";
+    var notBlockScoped = "I'm function-scoped despite being in a block";
+    
+    console.log(blockVar);      // Accessible
+    console.log(functionVar);   // Accessible
+    console.log(globalVar);     // Accessible
+  }
+  
+  // console.log(blockVar);     // Error: not defined here
+  console.log(notBlockScoped);  // Accessible (var ignores block scope)
+}
+Visual representation of scope:
+┌─────────────────────────────────────────────────┐
+│ Global Scope                                    │
+│                                                 │
+│ ┌─────────────────────────────────────────────┐ │
+│ │ Function Scope                              │ │
+│ │                                             │ │
+│ │ ┌─────────────────────────────────────────┐ │ │
+│ │ │ Block Scope                             │ │ │
+│ │ │                                         │ │ │
+│ │ │ let and const respect this boundary     │ │ │
+│ │ │ var ignores this boundary               │ │ │
+│ │ └─────────────────────────────────────────┘ │ │
+│ │                                             │ │
+│ └─────────────────────────────────────────────┘ │
+│                                                 │
+└─────────────────────────────────────────────────┘
+
+Hoisting
+JavaScript "hoists" declarations to the top of their scope during compilation:
+// What you write:
+console.log(hoistedVar); // undefined (not an error!)
+var hoistedVar = "I was hoisted!";
+
+// How JavaScript interprets it:
+var hoistedVar;
+console.log(hoistedVar); // undefined
+hoistedVar = "I was hoisted!";
+
+// let and const are hoisted but not initialized:
+// console.log(hoistedLet); // Error: Cannot access before initialization
+let hoistedLet = "I'm hoisted but not initialized!";
+
+
+
+####Basic Operators
+// Arithmetic operators
+let sum = 5 + 3;        // 8  (addition)
+let difference = 10 - 4; // 6  (subtraction)
+let product = 7 * 3;     // 21 (multiplication)
+let quotient = 20 / 4;   // 5  (division)
+let remainder = 10 % 3;  // 1  (modulus/remainder)
+let power = 2 ** 3;      // 8  (exponentiation)
+
+// Comparison operators
+5 == "5"    // true  (equality - converts types)
+5 === "5"   // false (strict equality - checks type and value)
+5 != "6"    // true  (inequality)
+5 !== "5"   // true  (strict inequality)
+7 > 5       // true  (greater than)
+5 < 10      // true  (less than)
+5 >= 5      // true  (greater than or equal to)
+5 <= 4      // false (less than or equal to)
+
+// Logical operators
+true && false  // false (AND - both must be true)
+true || false  // true  (OR - at least one must be true)
+!true          // false (NOT - negates the value)
+
+Control Flow
+
+// if statement
+let temperature = 75;
+
+if (temperature > 80) {
+  console.log("It's hot outside!");
+} else if (temperature > 60) {
+  console.log("It's pleasant outside!");
+} else {
+  console.log("It's cold outside!");
+}
+
+// switch statement
+let day = "Monday";
+
+switch (day) {
+  case "Monday":
+    console.log("Start of the work week");
+    break;
+  case "Friday":
+    console.log("End of the work week");
+    break;
+  case "Saturday":
+  case "Sunday":
+    console.log("Weekend!");
+    break;
+  default:
+    console.log("Midweek");
+}
+
+// ternary operator
+let age = 20;
+let canVote = age >= 18 ? "Yes" : "No";
+console.log(canVote); // "Yes"
+
+
+2. Functions – Building Blocks of JavaScript
+What is a Function?
+A function is a reusable block of code designed to perform a specific task. Functions help organize code, reduce repetition, and make your code more maintainable.
+
+// Basic syntax
+function sayHello() {
+  console.log("Hello, World!");
+}
+
+// Call the function
+sayHello(); // "Hello, World!"
+
+
+
+##Function Declaration vs Expression
+// Function declaration - can be called before it's defined (hoisted)
+function multiply(a, b) {
+  return a * b;
+}
+
+// Function expression - cannot be called before it's defined
+const divide = function(a, b) {
+  return a / b;
+};
+
+console.log(multiply(5, 3)); // 15
+console.log(divide(10, 2));  // 5
+
+**Visual comparison:
+
+┌───────────────────────────────┐ ┌───────────────────────────────┐
+│ Function Declaration          │ │ Function Expression           │
+├───────────────────────────────┤ ├───────────────────────────────┤
+│ function name(params) {       │ │ const name = function(params) {│
+│   // code                     │ │   // code                     │
+│ }                             │ │ };                            │
+├───────────────────────────────┤ ├───────────────────────────────┤
+│ ✓ Hoisted (can be used       │ │ ✗ Not hoisted in the same way │
+│   before declaration)         │ │                               │
+│ ✓ Clear distinction in code  │ │ ✓ Can be anonymous            │
+│                               │ │ ✓ Can be used as argument     │
+└───────────────────────────────┘ └───────────────────────────────┘
+
+
+
+##Arrow Functions
+Arrow functions provide a shorter syntax and lexically bind the this value:
+// Traditional function
+const square = function(x) {
+  return x * x;
+};
+
+// Arrow function (single parameter)
+const squareArrow = x => x * x;
+
+// Arrow function (multiple parameters)
+const add = (a, b) => a + b;
+
+// Arrow function with function body
+const greet = name => {
+  const greeting = `Hello, ${name}!`;
+  return greeting;
+};
+
+console.log(square(5));     // 25
+console.log(squareArrow(5)); // 25
+console.log(add(3, 7));      // 10
+console.log(greet("Alice")); // "Hello, Alice!"
+
+
+##Function Parameters and Return
+
+// Parameters - values passed to functions
+function greetPerson(name, greeting = "Hello") {
+  return `${greeting}, ${name}!`;
+}
+
+// Return values
+console.log(greetPerson("Maria"));          // "Hello, Maria!"
+console.log(greetPerson("John", "Welcome")); // "Welcome, John!"
+
+// Functions that don't return anything
+function logMessage(message) {
+  console.log(message);
+  // No return statement (implicitly returns undefined)
+}
+
+const result = logMessage("Testing");
+console.log(result); // undefined
+
+
+Closures
+A closure occurs when a function "remembers" its lexical scope even when executed outside that scope.
+
+function createCounter() {
+  let count = 0;  // Private variable
+  
+  return function() {
+    count++;
+    return count;
+  };
+}
+
+const counter = createCounter();
+console.log(counter()); // 1
+console.log(counter()); // 2
+console.log(counter()); // 3
+
+// Each counter function has its own private count variable
+const counter2 = createCounter();
+console.log(counter2()); // 1 (not affected by counter)
+
+
+**Visual representation of a closure:
+
+┌─────────────────────────────────────────┐
+│ createCounter function                  │
+│                                         │
+│ ┌─────────────────────────────────────┐ │
+│ │ let count = 0                       │ │
+│ │                                     │ │
+│ │ ┌─────────────────────────────────┐ │ │
+│ │ │ return function() {            │ │ │
+│ │ │   count++;                     │ │ │
+│ │ │   return count;                │ │ │
+│ │ │ }                              │ │ │
+│ │ └─────────────────────────────────┘ │ │
+│ │                ▲                    │ │
+│ └────────────────┼────────────────────┘ │
+└──────────────────┼──────────────────────┘
+                   │
+┌──────────────────┼──────────────────────┐
+│ const counter =  │                      │
+└──────────────────┘                      │
+                                          │
+  When counter() is called, it still has  │
+  access to the count variable even though│
+  createCounter has finished executing    │
+└─────────────────────────────────────────┘
+
+3. Arrays and Objects – Working with Data
+Arrays
+## Arrays are ordered collections of values that can be of any type.
+
+// Creating arrays
+let fruits = ["Apple", "Banana", "Cherry"];
+let mixed = [1, "two", true, null, {name: "Object"}, [1, 2]];
+
+// Accessing elements (zero-based indexing)
+console.log(fruits[0]); // "Apple"
+console.log(fruits[2]); // "Cherry"
+
+// Array length
+console.log(fruits.length); // 3
+
+// Basic array methods
+fruits.push("Date");        // Add to end: ["Apple", "Banana", "Cherry", "Date"]
+let lastFruit = fruits.pop(); // Remove from end: ["Apple", "Banana", "Cherry"]
+console.log(lastFruit);     // "Date"
+
+fruits.unshift("Apricot");   // Add to start: ["Apricot", "Apple", "Banana", "Cherry"]
+let firstFruit = fruits.shift(); // Remove from start: ["Apple", "Banana", "Cherry"]
+console.log(firstFruit);    // "Apricot"
+
+// Finding elements
+console.log(fruits.indexOf("Banana")); // 1
+console.log(fruits.includes("Mango")); // false
+
+
+## Advanced Array Methods
+let numbers = [1, 2, 3, 4, 5];
+
+// map - transform each element
+let doubled = numbers.map(function(num) {
+  return num * 2;
+});
+console.log(doubled); // [2, 4, 6, 8, 10]
+
+// filter - keep elements that pass a test
+let evenNumbers = numbers.filter(function(num) {
+  return num % 2 === 0;
+});
+console.log(evenNumbers); // [2, 4]
+
+// reduce - accumulate values
+let sum = numbers.reduce(function(total, num) {
+  return total + num;
+}, 0);
+console.log(sum); // 15 (1+2+3+4+5)
+
+// forEach - execute function for each element
+numbers.forEach(function(num) {
+  console.log(num * 2);
+});
+// Outputs: 2, 4, 6, 8, 10
+
+
+**Visual representation of array methods:
+┌──────────────────────────────────────────────────────────────┐
+│ Array Methods Visualization with [1, 2, 3, 4, 5]             │
+├──────────────┬───────────────────────────────────────────────┤
+│ Method       │ Visualization                                 │
+├──────────────┼───────────────────────────────────────────────┤
+│ map          │ [1, 2, 3, 4, 5] → [2, 4, 6, 8, 10]            │
+│              │  ↑  ↑  ↑  ↑  ↑     ↑  ↑  ↑  ↑  ↑              │
+│              │  x2 x2 x2 x2 x2     2  4  6  8 10             │
+├──────────────┼───────────────────────────────────────────────┤
+│ filter       │ [1, 2, 3, 4, 5] → [2, 4]                      │
+│              │  ╳  ✓  ╳  ✓  ╳                               │
+│              │ odd even odd even odd                         │
+├──────────────┼───────────────────────────────────────────────┤
+│ reduce       │ [1, 2, 3, 4, 5] → 15                          │
+│              │   ╲╲_╲╲_╲╲_╲╲_/                               │
+│              │    0+1+2+3+4+5                                │
+└──────────────┴───────────────────────────────────────────────┘
+
+Objects
+Objects store data as key-value pairs:
+
+// Creating objects
+let person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 30,
+  hobbies: ["reading", "music", "sports"],
+  address: {
+    street: "123 Main St",
+    city: "New York",
+    country: "USA"
+  }
+};
+
+// Accessing properties
+console.log(person.firstName);        // "John"
+console.log(person["lastName"]);      // "Doe" (bracket notation)
+console.log(person.hobbies[1]);       // "music"
+console.log(person.address.city);     // "New York"
+
+// Adding/modifying properties
+person.email = "john@example.com";    // Add new property
+person.age = 31;                     // Modify existing property
+
+// Object methods
+let keys = Object.keys(person);      // ["firstName", "lastName", "age", "hobbies", "address", "email"]
+let values = Object.values(person);  // [Array of values]
+let entries = Object.entries(person); // [Array of [key, value] pairs]
+
+
+##Object Methods
+// Adding methods to objects
+let calculator = {
+  add: function(a, b) {
+    return a + b;
+  },
+  
+  // Shorthand method syntax (ES6)
+  subtract(a, b) {
+    return a - b;
+  },
+  
+  multiply(a, b) {
+    return a * b;
+  }
+};
+
+console.log(calculator.add(5, 3));      // 8
+console.log(calculator.subtract(10, 4)); // 6
+console.log(calculator.multiply(2, 3));  // 6
+
+
+## Iterating Over Arrays and Objects
+// Iterating over arrays
+let colors = ["red", "green", "blue"];
+
+// Traditional for loop
+for (let i = 0; i < colors.length; i++) {
+  console.log(colors[i]);
+}
+
+// for...of loop (iterates over values)
+for (let color of colors) {
+  console.log(color);
+}
+
+// Iterating over objects
+let user = {name: "Alice", age: 25, role: "Admin"};
+
+// for...in loop (iterates over keys)
+for (let key in user) {
+  console.log(`${key}: ${user[key]}`);
+}
+
+// Object.entries with for...of
+for (let [key, value] of Object.entries(user)) {
+  console.log(`${key}: ${value}`);
+}
+
+
+4. Asynchronous JavaScript – Handling Time-sensitive Code
+What is Asynchronous Programming?
+JavaScript is single-threaded, meaning it can do only one thing at a time. Asynchronous programming allows JavaScript to perform operations without blocking the main thread.
+
+Visual representation of synchronous vs asynchronous:
+┌───────────────────────────────────┐ ┌───────────────────────────────────┐
+│ Synchronous                       │ │ Asynchronous                      │
+├───────────────────────────────────┤ ├───────────────────────────────────┤
+│ Task A  →  Task B  →  Task C      │ │ Task A  →→→→→→→→→→→→→→→→  Done    │
+│                                   │ │    ↓                              │
+│ (Each task waits for previous     │ │ Task B  →→→→→→→  Done             │
+│  task to complete)                │ │       ↓                           │
+│                                   │ │    Task C  →→→  Done              │
+│                                   │ │                                   │
+│                                   │ │ (Tasks run in parallel)           │
+└───────────────────────────────────┘ └───────────────────────────────────┘
+
+
+##setTimeout and setInterval
+// setTimeout - run once after a delay
+console.log("Start");
+
+setTimeout(function() {
+  console.log("This runs after 2 seconds");
+}, 2000); // Time in milliseconds
+
+console.log("End");
+// Output: "Start", "End", "This runs after 2 seconds"
+
+// setInterval - run repeatedly at specified intervals
+let counter = 0;
+const intervalId = setInterval(function() {
+  counter++;
+  console.log(`Counter: ${counter}`);
+  
+  if (counter >= 5) {
+    clearInterval(intervalId); // Stop the interval
+    console.log("Interval stopped");
+  }
+}, 1000);
+
+
+Callbacks
+A callback is a function passed as an argument to another function, which is then invoked inside the outer function.
+
+// Simple callback example
+function fetchData(callback) {
+  setTimeout(function() {
+    const data = {id: 1, name: "Product"};
+    callback(data);
+  }, 2000);
+}
+
+fetchData(function(data) {
+  console.log("Data received:", data);
+});
+
+// Callback hell - nested callbacks making code hard to follow
+fetchData(function(data) {
+  console.log("First data:", data);
+  fetchMoreData(data.id, function(moreData) {
+    console.log("Second data:", moreData);
+    processData(moreData, function(result) {
+      console.log("Processed result:", result);
+      // More nesting...
+    });
+  });
+});
+
+Visual representation of callback hell:
+┌────────────────────────────────────────────────┐
+│ Callback Hell                                  │
+│                                                │
+│ fetchData(function(data) {                     │
+│   ┌─────────────────────────────────────────┐  │
+│   │ fetchMoreData(data.id, function(more) { │  │
+│   │   ┌──────────────────────────────────┐  │  │
+│   │   │ processData(more, function(res) {│  │  │
+│   │   │   ┌───────────────────────────┐  │  │  │
+│   │   │   │ saveResult(res, function {│  │  │  │
+│   │   │   │   // More callbacks...    │  │  │  │
+│   │   │   └───────────────────────────┘  │  │  │
+│   │   │ });                              │  │  │
+│   │   └──────────────────────────────────┘  │  │
+│   │ });                                     │  │
+│   └─────────────────────────────────────────┘  │
+│ });                                            │
+└────────────────────────────────────────────────┘
+
+Promises
+Promises provide a cleaner way to handle asynchronous operations.
+// Creating a promise
+function fetchDataPromise() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const success = true;
+      
+      if (success) {
+        resolve({id: 1, name: "Product"});
+      } else {
+        reject(new Error("Failed to fetch data"));
+      }
+    }, 2000);
+  });
+}
+
+// Using a promise
+fetchDataPromise()
+  .then(data => {
+    console.log("Data received:", data);
+    return processDataPromise(data);
+  })
+  .then(result => {
+    console.log("Processed result:", result);
+    return saveResultPromise(result);
+  })
+  .then(saveResponse => {
+    console.log("Save response:", saveResponse);
+  })
+  .catch(error => {
+    console.error("Error:", error.message);
+  })
+  .finally(() => {
+    console.log("Operation completed (success or failure)");
+  });
+
+
+Visual representation of promises:
+
+┌────────────────────────────────────────────────┐
+│ Promise Chain                                  │
+│                                                │
+│ fetchDataPromise()                             │
+│  │                                             │
+│  ▼                                             │
+│ .then(data => processDataPromise(data))        │
+│  │                                             │
+│  ▼                                             │
+│ .then(result => saveResultPromise(result))     │
+│  │                                             │
+│  ▼                                             │
+│ .then(saveResponse => console.log(saveResponse))│
+│  │                                             │
+│  │  If any step fails                          │
+│  └──────────────────┐                          │
+│                     ▼                          │
+│                .catch(error => handleError)    │
+│                     │                          │
+│                     ▼                          │
+│                .finally(() => cleanUp)         │
+└────────────────────────────────────────────────┘
+
+
+Async/Await
+Async/await is syntactic sugar over promises, making asynchronous code look more like synchronous code.
+// Async function declaration
+async function fetchAndProcessData() {
+  try {
+    // Await suspends execution until promise resolves
+    const data = await fetchDataPromise();
+    console.log("Data received:", data);
+    
+    const result = await processDataPromise(data);
+    console.log("Processed result:", result);
+    
+    const saveResponse = await saveResultPromise(result);
+    console.log("Save response:", saveResponse);
+    
+    return saveResponse;
+  } catch (error) {
+    console.error("Error:", error.message);
+  } finally {
+    console.log("Operation completed");
+  }
+}
+
+// Call the async function
+fetchAndProcessData().then(finalResult => {
+  console.log("Final result:", finalResult);
+});
+
+
+
+**Comparison of callback, promise, and async/await:
+┌─────────────────────────────────────────────────────────┐
+│ Handling Asynchronous Code                              │
+├─────────────────┬─────────────────┬─────────────────────┤
+│ Callbacks       │ Promises        │ Async/Await         │
+├─────────────────┼─────────────────┼─────────────────────┤
+│ getData(function│ getData()       │ async function run(){│
+│   (data) {      │   .then(data => │   try {             │
+│     // Use data │     // Use data │     const data =    │
+│     getMore(data│     return more │       await getData()│
+│       function(m│   })            │     const more =    │
+│       ) {       │   .then(more => │       await getMore()│
+│         // Use m │     // Use more│     // Use data+more│
+│       }         │   })            │   } catch (error) { │
+│     );          │   .catch(error =>│     // Handle err  │
+│   }             │     // Handle   │   }                 │
+│ );              │   );            │ }                   │
+├─────────────────┼─────────────────┼─────────────────────┤
+│ ✗ "Callback    │ ✓ Chainable     │ ✓ Looks like        │
+│   hell" nesting │ ✓ Built-in     │   synchronous code   │
+│ ✗ Error handling│   error handling│ ✓ Try/catch for    │
+│   is complex    │                 │   error handling    │
+└─────────────────┴─────────────────┴─────────────────────┘
+
+5. JavaScript and the DOM – Interacting with the Browser
+What is the DOM?
+The Document Object Model (DOM) is a programming interface for web documents. It represents the page as a tree of objects that JavaScript can manipulate.
+
+Visual representation of the DOM tree:
+┌─────────────────────────────────────────────────────┐
+│ DOM Tree                                            │
+│                                                     │
+│               document                              │
+│                   │                                 │
+│                   ▼                                 │
+│                 <html>                              │
+│                 /     \                             │
+│                /       \                            │
+│               ▼         ▼                           │
+│           <head>       <body>                       │
+│             │            │                          │
+│             ▼            ▼                          │
+│          <title>      <div>                         │
+│             │          / \                          │
+│             ▼         /   \                         │
+│         "My Page"    ▼     ▼                        │
+│                   <h1>    <p>                       │
+│                    │       │                        │
+│                    ▼       ▼                        │
+│                "Header"  "Text"                     │
+└─────────────────────────────────────────────────────┘
+
+Accessing DOM Elements
+
+// By ID - returns a single element
+const header = document.getElementById('header');
+
+// By class name - returns an HTMLCollection (array-like object)
+const navItems = document.getElementsByClassName('nav-item');
+
+// By tag name - returns an HTMLCollection
+const paragraphs = document.getElementsByTagName('p');
+
+// CSS selectors - returns the first matching element
+const mainContent = document.querySelector('.main-content');
+
+// CSS selectors - returns all matching elements as a NodeList
+const buttons = document.querySelectorAll('button.action');
+
+// Traversing the DOM
+const parent = header.parentElement;
+const firstChild = parent.firstElementChild;
+const nextSibling = header.nextElementSibling;
+
+
+Modifying HTML Content
+
+// Changing text content
+header.textContent = 'New Heading';
+
+// Changing HTML content
+mainContent.innerHTML = '<p>This is <strong>new</strong> content.</p>';
+
+// Getting and setting attributes
+const link = document.querySelector('a');
+console.log(link.getAttribute('href'));
+link.setAttribute('href', 'https://example.com');
+link.setAttribute('target', '_blank');
+
+// Working with form values
+const inputField = document.querySelector('input[type="text"]');
+inputField.value = 'Default text';
+
+
+Manipulating Styles
+
+// Direct style manipulation
+header.style.color = 'blue';
+header.style.backgroundColor = '#f0f0f0';
+header.style.fontSize = '24px';
+
+// Working with classes
+header.classList.add('highlight');
+header.classList.remove('hidden');
+header.classList.toggle('active');
+const hasClass = header.classList.contains('highlight'); // true
+
+
+Creating and Removing Elements
+
+// Creating elements
+const newParagraph = document.createElement('p');
+newParagraph.textContent = 'This is a dynamically created paragraph.';
+
+// Adding elements to the DOM
+mainContent.appendChild(newParagraph);
+
+// Inserting before another element
+const referenceElement = document.querySelector('.reference');
+mainContent.insertBefore(newParagraph, referenceElement);
+
+// Removing elements
+newParagraph.remove(); // Modern approach
+// Or
+if (newParagraph.parentNode) {
+  newParagraph.parentNode.removeChild(newParagraph); // Works in older browsers
+}
+
+
+6. Event Handling – Making Web Pages Interactive
+Introduction to Events
+Events are actions or occurrences that happen in the browser, such as a user clicking a button or the page finishing loading.
+
+Common events:
+
+click: Mouse clicks an element
+dblclick: Mouse double-clicks an element
+mouseover/mouseout: Mouse enters/leaves an element
+keydown/keyup: Keyboard key is pressed/released
+submit: Form is submitted
+load: Resource and its dependents have finished loading
+resize: Window is resized
+scroll: Element is scrolled
+
+##Event Listeners
+// Basic event listener
+const button = document.querySelector('button');
+button.addEventListener('click', function() {
+  console.log('Button clicked!');
+});
+
+// Using named functions
+function handleButtonClick() {
+  console.log('Button clicked!');
+}
+button.addEventListener('click', handleButtonClick);
+
+// Removing event listeners
+button.removeEventListener('click', handleButtonClick);
+
+// The event object
+button.addEventListener('click', function(event) {
+  console.log('Event type:', event.type);
+  console.log('Target element:', event.target);
+  console.log('Mouse coordinates:', event.clientX, event.clientY);
+});
+
+
+
+Visual representation of event flow:
+
+┌─────────────────────────────────────────────────────┐
+│ Button Click Event                                  │
+│                                                     │
+│ 1. User clicks button                               │
+│                                                     │
+│ 2. Browser creates event object with details:       │
+│    - type: "click"                                  │
+│    - target: button element                         │
+│    - timestamp                                      │
+│    - mouse coordinates                              │
+│    - etc.                                           │
+│                                                     │
+│ 3. Event listener function is called                │
+│    with event object as parameter                   │
+│                                                     │
+│ 4. Function executes and performs actions           │
+└─────────────────────────────────────────────────────┘
+
+
+Event Bubbling and Capturing
+Events in the DOM propagate in three phases:
+
+Capturing phase: From document down to the target element
+Target phase: The event reaches the target element
+Bubbling phase: From the target back up to the document
+
+// HTML structure:
+// <div id="outer">
+//   <div id="inner">
+//     <button id="button">Click me</button>
+//   </div>
+// </div>
+
+const outer = document.getElementById('outer');
+const inner = document.getElementById('inner');
+const button = document.getElementById('button');
+
+// Bubbling (default - third parameter is false or omitted)
+outer.addEventListener('click', function() {
+  console.log('Outer div clicked (bubble)');
+});
+
+inner.addEventListener('click', function() {
+  console.log('Inner div clicked (bubble)');
+});
+
+button.addEventListener('click', function() {
+  console.log('Button clicked (bubble)');
+});
+
+// Capturing (third parameter is true)
+outer.addEventListener('click', function() {
+  console.log('Outer div clicked (capture)');
+}, true);
+
+inner.addEventListener('click', function() {
+  console.log('Inner div clicked (capture)');
+}, true);
+
+button.addEventListener('click', function() {
+  console.log('Button clicked (capture)');
+}, true);
+
+// When button is clicked, output is:
+// 1. "Outer div clicked (capture)"
+// 2. "Inner div clicked (capture)"
+// 3. "Button clicked (capture)"
+// 4. "Button clicked (bubble)"
+// 5. "Inner div clicked (bubble)"
+// 6. "Outer div clicked (bubble)"
+
+
+**Visual representation of event propagation:
+
+┌───────────────────────────────────────────────────┐
+│ Event Propagation                                 │
+│                                                   │
+│ ┌───────────────────────────────────────────────┐ │
+│ │ #outer                                        │ │
+│ │ ┌───────────────────────────────────────────┐ │ │
+│ │ │ #inner                                    │ │ │
+│ │ │ ┌───────────────────────────────────────┐ │ │ │
+│ │ │ │ #button                               │ │ │ │
+│ │ │ │                                       │ │ │ │
+│ │ │ │         3. TARGET PHASE               │ │ │ │
+│ │ │ │                                       │ │ │ │
+│ │ │ └───────────────────────────────────────┘ │ │ │
+│ │ │                                           │ │ │
+│ │ └───────────────────────────────────────────┘ │ │
+│ │                                               │ │
+│ └───────────────────────────────────────────────┘ │
+│                                                   │
+│       1. CAPTURING PHASE         2. BUBBLING PHASE│
+│           (top → down)              (bottom → up) │
+│               ▼                         ▲         │
+│               ▼                         ▲         │
+│               ▼                         ▲         │
+└───────────────────────────────────────────────────┘
+
+
+##Preventing Default Behavior and Stopping Propagation
+
+// Prevent default behavior
+const link = document.querySelector('a');
+link.addEventListener('click', function(event) {
+  event.preventDefault(); // Prevents the link from navigating
+  console.log('Link click prevented');
+});
+
+// Stop propagation
+button.addEventListener('click', function(event) {
+  event.stopPropagation(); // Prevents the event from bubbling up
+  console.log('Event stopped, parent handlers will not be called');
+});
+
+// Stop immediate propagation
+button.addEventListener('click', function(event) {
+  console.log('First button handler');
+  event.stopImmediatePropagation(); // Stops other handlers on the same element
+});
+
+button.addEventListener('click', function(event) {
+  console.log('Second button handler - will not run');
+});
+
+
+Event Delegation
+Event delegation leverages event bubbling to handle events for multiple elements with a single event listener on a parent element.
+// Instead of attaching events to each list item:
+const list = document.querySelector('ul');
+
+// Use event delegation:
+list.addEventListener('click', function(event) {
+  // Check if the clicked element is a list item
+  if (event.target.tagName === 'LI') {
+    console.log('List item clicked:', event.target.textContent);
+    // Do something with the list item
+    event.target.classList.toggle('selected');
+  }
+});
+
+// This works even for list items added dynamically later!
+const newItem = document.createElement('li');
+newItem.textContent = 'New item';
+list.appendChild(newItem);
+
+
+I've covered in detail the first 6 sections of the Phase 2 learning path. Would you like me to continue with sections 7-9 (Object-Oriented JavaScript, Advanced JavaScript Concepts, and ES6+ Features)?
+
+Similar code found with 6 license types - View matches

@@ -1,0 +1,213 @@
+# ========================================================
+#            PHASE 0: WEB WARRIORS ⚔️
+# ========================================================
+
+**OBJECTIVE:** Learn the building blocks of the web, how the internet works, and how the protocols make communication happen.
+
+## --------------------------------------------------------
+## 1. HOW THE INTERNET WORKS
+## --------------------------------------------------------
+
+- Introduction to the concept of the Internet
+- Overview of the World Wide Web (WWW) and its connection to the internet
+- How data is transferred across networks
+- Understanding IP addresses, domain names, and routing
+
+**KEY CONCEPTS:** Internet Service Providers (ISPs), Routers, DNS
+
+## --------------------------------------------------------
+## 2. DNS MAGIC AND INTERNALS
+## --------------------------------------------------------
+
+- What is DNS (Domain Name System)?
+- How DNS resolves domain names to IP addresses
+- Types of DNS records: A, CNAME, MX, and more
+- DNS Hierarchy: Root DNS servers, TLDs, and authoritative DNS servers
+- How browsers query DNS servers to load websites
+
+**KEY CONCEPTS:** Recursive queries, Caching, TTL (Time-to-Live)
+
+## --------------------------------------------------------
+## 3. SERVER-CLIENT ARCHITECTURE
+## --------------------------------------------------------
+
+- What is a Client-Server model?
+- Differences between Client and Server in web applications
+- HTTP request-response cycle
+- How browsers act as clients that request resources from web servers
+- Introduction to web servers and web hosting
+
+**KEY CONCEPTS:** Web servers (Apache, Nginx), Client-side vs Server-side, Request headers, Response codes
+
+## --------------------------------------------------------
+## 4. INTERNET PROTOCOLS
+## --------------------------------------------------------
+
+- Introduction to network protocols: What are they, and why are they needed?
+- The role of protocols in ensuring data transfer integrity and reliability
+
+### 4.1. TCP/IP
+
+- What is TCP/IP and why it is fundamental for data transmission
+- Overview of TCP (Transmission Control Protocol) and IP (Internet Protocol)
+- How TCP handles data segmentation, error checking, and retransmission
+
+**KEY CONCEPTS:** IP addressing, Port numbers, Datagram transmission
+
+### 4.2. UDP (User Datagram Protocol)
+
+- What is UDP, and how does it differ from TCP?
+- Understanding when and why UDP is used (e.g., in video streaming or gaming)
+- Comparison of TCP and UDP performance (reliability vs speed)
+
+**KEY CONCEPTS:** Datagram-based transmission, Low overhead, Connectionless communication
+
+## --------------------------------------------------------
+## 5. TCP HANDSHAKES AND 3-WAY HANDSHAKES
+## --------------------------------------------------------
+
+- What is a 3-way handshake in TCP?
+- Detailed breakdown of the 3 phases: SYN, SYN-ACK, and ACK
+- The purpose of the handshake: Establishing a reliable connection
+- How data is transmitted after the handshake is complete
+
+**KEY CONCEPTS:** Reliable connection establishment, Sequence numbers, Acknowledgments
+
+## --------------------------------------------------------
+## 6. HTTP & HTTPS PROTOCOLS
+## --------------------------------------------------------
+
+- Introduction to HTTP (HyperText Transfer Protocol) and HTTPS (Secure version of HTTP)
+- What happens during an HTTP request-response cycle?
+- Understanding status codes: 200 OK, 404 Not Found, 500 Internal Server Error
+- Introduction to SSL/TLS and how it secures data during transmission
+
+**KEY CONCEPTS:** Request methods (GET, POST, PUT, DELETE), HTTPS handshake, Certificate Authorities
+
+# ========================================================
+#            VISUAL GUIDE: WEB WARRIORS
+# ========================================================
+
+## 1. HOW THE INTERNET WORKS
+Network Diagram:
+[Home]----[ISP]----[Internet Backbone]----[ISP]----[Server]
+    |                       |
+    |                       |
+  [Router]              [DNS Server]
+
+The internet is a global network of interconnected computers and servers. When you connect your device to the internet:
+
+- Your device connects to a local router
+- The router connects to your ISP (Internet Service Provider)
+- The ISP connects to the global internet backbone
+- Data packets travel through multiple routers to reach their destination
+
+## 2. DNS MAGIC
+DNS Resolution Flow:
+[Browser] → [Local DNS Cache] → [ISP DNS Server] → [Root DNS] → [TLD DNS] → [Authoritative DNS]
+    ↑                                                               |
+    └───────────────────────────────────────────────────────────────┘
+                       IP Address
+                       
+When you type "www.example.com":
+
+- Your browser checks local cache
+- If not found, it asks your ISP's DNS server
+- The query may travel through the DNS hierarchy:
+  * Root DNS servers (.)
+  * Top-Level Domain servers (.com)
+  * Authoritative name servers (example.com)
+- The resolved IP address (e.g., 93.184.216.34) is returned
+
+## 3. CLIENT-SERVER ARCHITECTURE
+Request-Response Cycle:
+    [Client/Browser]                        [Web Server]
+        |                                      |
+        |------- HTTP Request (GET) --------→  |
+        |                                      |
+        |←------ HTTP Response (HTML) -------- |
+        
+Every website interaction follows this pattern:
+
+- Your browser (client) sends requests for resources
+- Web servers process these requests and send back responses
+- The client then renders the received data
+
+## 4. INTERNET PROTOCOLS
+┌─────────────────┐
+│ Application     │ HTTP, FTP, SMTP
+├─────────────────┤
+│ Transport       │ TCP, UDP
+├─────────────────┤
+│ Internet        │ IP, ICMP
+├─────────────────┤
+│ Network Access  │ Ethernet, Wi-Fi
+└─────────────────┘
+
+TCP vs UDP:
+┌─────────────────┐          ┌──────────────────┐
+│ TCP             │          │ UDP              │
+├─────────────────┤          ├──────────────────┤
+│ Reliable        │          │ Fast             │
+│ Connection-based│          │ Connectionless   │
+│ Ordered delivery│          │ No ordering      │
+│ Error checking  │          │ No error recovery│
+└─────────────────┘          └──────────────────┘
+
+## 5. TCP 3-WAY HANDSHAKE
+This establishes a reliable connection before any data is sent.
+
+[Client]                      [Server]
+   |                             |
+   |------ SYN (seq=x) -------→  |
+   |                             |
+   |←-- SYN-ACK (seq=y, ack=x+1)-|
+   |                             |
+   |------ ACK (ack=y+1) -----→  |
+   |                             |
+   |------ Data Transfer -----→  |
+
+## 6. HTTP & HTTPS
+HTTP Request Structure:
+
+GET /index.html HTTP/1.1
+Host: www.example.com
+User-Agent: Mozilla/5.0
+Accept: text/html
+Connection: keep-alive
+
+
+HTTP Response:
+
+HTTP/1.1 200 OK
+Date: Mon, 23 May 2023 22:38:34 GMT
+Content-Type: text/html; charset=UTF-8
+Content-Length: 138
+Server: Apache/2.4.1
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Example Page</title>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+</body>
+</html>
+
+HTTP vs HTTPS:
+┌─────────────────┐          ┌──────────────────┐
+│ HTTP            │          │ HTTPS            │
+├─────────────────┤          ├──────────────────┤
+│ Unencrypted     │          │ Encrypted (SSL/TLS) │
+│ Port 80         │          │ Port 443         │
+│ No certificates │          │ Uses certificates│
+│ Insecure        │          │ Secure           │
+└─────────────────┘          └──────────────────┘
+
+HTTPS Connection:
+[Browser] ←→ [TLS Handshake] ←→ [Web Server]
+         ↓              ↓                ↓
+[Verifies Cert]  [Exchanges Keys]  [Sends Cert]
+         ↓              ↓                ↓
+         └─────[Encrypted Data Transfer]─────┘
