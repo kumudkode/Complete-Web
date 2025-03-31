@@ -10,9 +10,10 @@ accountPassword = "212121"; // allowed
 accountCity= "vas"; // allowed
 // we can create a variable without var, let or const
 // but it is not recommended
-
-console.log(accountId, accountEmail, accountPassword);
-console.table([accountId, accountEmail, accountPassword]);
+let accountName;
+// accountName is undefined
+console.log(accountId, accountEmail, accountPassword, accountCity, accountName);
+console.table([accountId, accountEmail, accountPassword , accountCity, accountName]);
 
 // in previous time javascript does not know what is scope 
 {
@@ -23,4 +24,4 @@ console.table([accountId, accountEmail, accountPassword]);
 // let and const are block scoped variables
 // var is function scoped variable
 // there was a issue in var that is we can redeclare a variable with var keyword 
-// but we can not redeclare a variable with let and const keywor
+// but we can not redeclare a variable with let and const keyword 
