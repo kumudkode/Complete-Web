@@ -70,7 +70,24 @@ console.log(undefined>0);
 console.log(undefined>null);
 console.log(null>undefined);
 
-// ==== checks datatypes
+// ==== strictly checks datatypes 
+console.log(2===2); // true
+console.log(2==="2"); // false
+
 console.log(null===0);
 console.log(null===null);
+/*it happens due to type coercion 
+type coercion is the automatic or implicit conversion of values from one data type to another
+in js, null is a falsy value and undefined is a non-falsy value
+so null is not equal to undefined and undefined is not equal to null
+but null and undefined are equal to each other
+but not equal to anything else*/
+
+
+console.log(null==undefined); // true
+console.log(undefined==undefined); // true
+console.log(null===undefined); // false
+console.log(null==0); // false
+console.log(undefined==0); // false
+console.log(null==null); // true
 
