@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Memory Visualization</title>
+    <script src="06_Memory.js"></script>
+</head>
+<body>
+    <h1>Stack vs Heap Memory Visualization</h1>
+    <script>
+        document.addEventListener('DOMContentLoaded', createMemoryVisuals);
+
+        // Function to create memory visualizations (requires a browser environment)
+        function createMemoryVisuals() {
+            // Create container for our visualizations
+            const container = document.createElement('div');
+            container.style.display = 'flex';
+            container.style.justifyContent = 'space-around';
+            container.style.padding = '20px';
+            
+            // Create stack visualization
+            const stackDiv = document.createElement('div');
+            stackDiv.innerHTML = `
+                <h2>Stack Memory</h2>
+                <canvas id="stackCanvas" width="300" height="400" style="border:1px solid #000;"></canvas>
+                <p>Stack memory follows LIFO (Last In, First Out) and stores:</p>
+                <ul>
+                    <li>Primitive values (numbers, booleans, etc.)</li>
+                    <li>Function call frames</li>
+                    <li>References to heap objects</li>
+                </ul>
+            `;
+            
+            // Create heap visualization
+            const heapDiv = document.createElement('div');
+            heapDiv.innerHTML = `
+                <h2>Heap Memory</h2>
+                <canvas id="heapCanvas" width="400" height="400" style="border:1px solid #000;"></canvas>
+                <p>Heap memory stores:</p>
+                <ul>
+                    <li>Objects</li>
+                    <li>Arrays</li>
+                    <li>Functions</li>
+                    <li>Other complex data structures</li>
+                </ul>
+            `;
+            
+            // Add to container and document
+            container.appendChild(stackDiv);
+            container.appendChild(heapDiv);
+            document.body.appendChild(container);
+            
+            // Draw memory visualizations
+            drawStackMemory();
+            drawHeapMemory();
+        }
+
+        // Function to draw stack memory
+        function drawStackMemory() {
+            const canvas = document.getElementById('stackCanvas');
+            if (!canvas || !canvas.getContext) return;
+            
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw stack frame
+            ctx.fillStyle = '#f0f0f0';
+            ctx.fillRect(50, 50, 200, 300);
+            ctx.strokeRect(50, 50, 200, 300);
+            
+            // Draw stack items
+            const items = [
+                { name: 'return address', value: '0x8A72F1', type: 'pointer' },
+                { name: 'local var x', value: '42', type: 'number' },
+                { name: 'local var y', value: 'true', type: 'boolean' },
+                { name: 'obj reference', value: '0xF721A0', type: 'reference' },
+                { name: 'return address', value: '0x8A7301', type: 'pointer' },
+                { name: 'param z', value: '13', type: 'number' },
+            ];
+            
+            let yPos = 70;
+            items.forEach((item, index) => {
+                // Draw separation line
+                if (index > 0) {
+                    ctx.beginPath();
+                    ctx.moveTo(50, yPos - 10);
+                    ctx.lineTo(250, yPos - 10);
+                    ctx.stroke();
+                }
+                
+                // Different color for different types
+                ctx.fillStyle = item.type === 'pointer' ? '#ffdddd' : 
+                                                item.type === 'number' ? '#ddffdd' : 
+                                                item.type === 'boolean' ? '#ddddff' : '#ffffdd';
+                
+                ctx.fillRect(55, yPos, 190, 40);
+                ctx.strokeRect(55, yPos, 190, 40);
+                
+                // Add text
+                ctx.fillStyle = '#000';
+                ctx.font = '12px Arial';
+                ctx.fillText(item.name, 60, yPos + 15);
+                ctx.fillText(item.value, 60, yPos + 30);
+                
+                yPos += 50;
+            });
+            
+            // Label
+            ctx.font = '16px Arial';
+            ctx.fillStyle = '#000';
+            ctx.fillText('Stack grows downward', 70, 30);
+            ctx.fillText('↓', 145, 45);
+        }
+
+        // Function to draw heap memory
+        function drawHeapMemory() {
+            const canvas = document.getElementById('heapCanvas');
+            if (!canvas || !canvas.getContext) return;
+            
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw heap area
+            ctx.fillStyle = '#f0f0f0';
+            ctx.fillRect(20, 20, 360, 360);
+            ctx.strokeRect(20, 20, 360, 360);
+            
+            // Label
+            ctx.font = '16px Arial';
+            ctx.fillStyle = '#000';
+            ctx.fillText('Heap Memory (Objects allocated randomly)', 70, 50);
+            
+            // Draw heap objects
+            const objects = [
+                { x: 40, y: 80, width: 120, height: 80, name: 'Object: Person', address: '0xF721A0' },
+                { x: 200, y: 100, width: 150, height: 60, name: 'Array', address: '0xF73B20' },
+                { x: 50, y: 200, width: 100, height: 100, name: 'Function', address: '0xF74C30' },
+                { x: 230, y: 220, width: 130, height: 90, name: 'Object: Car', address: '0xF75D40' }
+            ];
+            
+            objects.forEach(obj => {
+                // Random color for each object
+                const r = 150 + Math.floor(Math.random() * 100);
+                const g = 150 + Math.floor(Math.random() * 100);
+                const b = 150 + Math.floor(Math.random() * 100);
+                ctx.fillStyle = `rgb(${r},${g},${b})`;
+                
+                // Draw object box
+                ctx.fillRect(obj.x, obj.y, obj.width, obj.height);
+                ctx.strokeRect(obj.x, obj.y, obj.width, obj.height);
+                
+                // Add text
+                ctx.fillStyle = '#000';
+                ctx.font = '10px Arial';
+                ctx.fillText(obj.name, obj.x + 5, obj.y + 15);
+                ctx.fillText(obj.address, obj.x + 5, obj.y + 30);
+            });
+        }
+    </script>
+</body>
+</html>
