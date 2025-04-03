@@ -90,12 +90,13 @@
 
 ## 1. HOW THE INTERNET WORKS
 Network Diagram:
-[Home]----[ISP]----[Internet Backbone]----[ISP]----[Server]
+[Home/Device]<----[ISP]----[Internet Backbone]----[ISP]----[Server]
     |                       |
     |                       |
   [Router]              [DNS Server]
 
-The internet is a global network of interconnected computers and servers. When you connect your device to the internet:
+The internet is a global network of interconnected computers and servers. 
+When you connect your device to the internet:
 
 - Your device connects to a local router
 - The router connects to your ISP (Internet Service Provider)
@@ -135,7 +136,7 @@ Every website interaction follows this pattern:
 
 ## 4. INTERNET PROTOCOLS
 ┌─────────────────┐
-│ Application     │ HTTP, FTP, SMTP
+│ Application     │ HTTP, FTP, SMTP , HTTPS=HTTP+(SSL)
 ├─────────────────┤
 │ Transport       │ TCP, UDP
 ├─────────────────┤
@@ -177,7 +178,8 @@ Accept: text/html
 Connection: keep-alive
 
 
-HTTP Response:
+HTTP:
+ It was designed for communication between web browsers and web servers, but it can also be used for other purposes, such as machine-to-machine communication, programmatic access to APIs, and more
 
 HTTP/1.1 200 OK
 Date: Mon, 23 May 2023 22:38:34 GMT

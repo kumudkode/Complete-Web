@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 1 Spider-man</title>
+</head>
+<body>
+    <!-- Header section with site title and navigation -->
+    <header>
+        <h1>Phase 1 Spider-man</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content area -->
+    <main>
+        <!-- Introduction section -->
+        <section>
+            <h2>The Web's Skeleton</h2>
+            <p>Spider-man is a superhero created by Stan Lee and Steve Ditko. He first appeared in the comic book Amazing Fantasy #15 in 1962.</p>
+            <img src="image/sp.gif" alt="Spider-man">
+        </section>
+
+        <!-- Origin story section with nested article -->
+        <section>
+            <h2>Origin Story</h2>
+            <p>Peter Parker, a high school student, gains spider-like abilities after being bitten by a radioactive spider. He uses his powers to fight crime and protect New York City.</p>
+            <article>
+                <h3>Key Events</h3>
+                <ul>
+                    <li>Bitten by a radioactive spider</li>
+                    <li>Uncle Ben's death</li>
+                    <li>First battle with the Green Goblin</li>
+                </ul>
+                <p>These events shape Peter's journey as Spider-man.</p>     
+            </article>
+        </section>
+
+        <!-- Abilities section with ordered list -->
+        <section>
+            <h2>Abilities</h2>
+            <ol>
+                <li>Superhuman strength</li>
+                <li>Wall-crawling</li>
+                <li>Spider-sense</li>
+                <li>Web-shooting</li>
+            </ol>
+        </section>
+
+        <!-- Villains section with unordered list -->
+        <section>
+            <h2>Villains</h2>
+            <ul>
+                <li>Green Goblin</li>
+                <li>Doctor Octopus</li>
+                <li>Venom</li>
+                <li>Sandman</li>
+            </ul>
+        </section>
+
+        <!-- External links section -->
+        <section>
+            <a href="https://en.wikipedia.org/wiki/Spider-Man">
+                For more details click here
+            </a>
+            <button>
+                <a href="https://en.wikipedia.org/wiki/Spider-Man">Learn More</a>
+            </button>
+        </section> 
+        
+        <!-- Sidebar content -->
+        <aside>
+            <h2>Sidebar</h2>
+            <p>This is the sidebar content.</p>
+            <!-- Commented images -->
+            <!-- <img src="image/sp.gif" alt="Spider-man">
+            <img src="image/sp.gif" alt="Spider-man"> -->
+            <p>Additional sidebar information can go here.</p>
+        </aside>
+        <!-- User Interaction Form Section -->
+        <section id="contact-form">
+            <h2>Join the Spider-Fan Club</h2>
+            <p>Fill out this form to join our community of Spider-Man enthusiasts!</p>
+            
+            <form action="/submit-form" method="post">
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    
+                    <div>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required placeholder="your@email.com">
+                    </div>
+                    
+                    <div>
+                        <label for="password">Create Password:</label>
+                        <input type="password" id="password" name="password" required minlength="8">
+                        <small>Minimum 8 characters</small>
+                    </div>
+                    
+                    <div>
+                        <label for="age">Age:</label>
+                        <input type="number" id="age" name="age" min="13" max="120">
+                        <small>Must be 13 or older</small>
+                    </div>
+                </fieldset>
+                <br>
+                <br>
+                <br>
+                <fieldset>
+                    <legend>Spider-Man Preferences</legend>
+                    
+                    <div>
+                        <label for="favorite-villain">Favorite Villain:</label>
+                        <select id="favorite-villain" name="favorite-villain">
+                            <option value="">--Select a villain--</option>
+                            <option value="green-goblin">Green Goblin</option>
+                            <option value="doc-ock">Doctor Octopus</option>
+                            <option value="venom">Venom</option>
+                            <option value="sandman">Sandman</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <p>How did you discover Spider-Man?</p>
+                        <input type="checkbox" id="comics" name="discovery" value="comics">
+                        <label for="comics">Comics</label><br>
+                        
+                        <input type="radio" id="movies" name="discovery" value="movies">
+                        <label for="movies">Movies</label><br>
+                        
+                        <input type="radio" id="tv" name="discovery" value="tv">
+                        <label for="tv">TV Shows</label>
+                    </div>
+                    
+                    <div>
+                        <label for="comments">Tell us why you love Spider-Man:</label>
+                        <textarea id="comments" name="comments" rows="4" cols="50"></textarea>
+                    </div>
+                </fieldset>
+                
+                <div>
+                    <input type="checkbox" id="newsletter" name="newsletter">
+                    <label for="newsletter">Subscribe to our newsletter</label>
+                </div>
+                <div class="form-validation-info">
+                    <p>Form Validation Information:</p>
+                    <ul>
+                        <li>Fields marked with * are required</li>
+                        <li>Your age must be between 13-120</li>
+                        <li>Password must be at least 8 characters</li>
+                    </ul>
+                </div>
+
+                <fieldset>
+                    <legend>Additional Information (with validation)</legend>
+                    
+                    <div>
+                        <label for="birth-date">Birth Date:</label>
+                        <input type="date" id="birth-date" name="birth-date" 
+                                     min="1900-01-01" max="2010-01-01" aria-describedby="date-help">
+                        <small id="date-help">Date must be between 1900-2010</small>
+                    </div>
+                    
+                    <div>
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" 
+                                     pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
+                                     placeholder="123-456-7890" aria-describedby="phone-format">
+                        <small id="phone-format">Format: 123-456-7890</small>
+                    </div>
+                    
+                    <div>
+                        <label for="profile-pic">Profile Picture:</label>
+                        <input type="file" id="profile-pic" name="profile-pic"
+                                     accept="image/png, image/jpeg" aria-describedby="file-help">
+                        <small id="file-help">JPG or PNG files only (max 2MB)</small>
+                    </div>
+                </fieldset>
+                <button type="submit">Join Now</button>
+                <button type="reset">Clear Form</button>
+            </form>
+        </section>
+        <section>
+             <br><br><br><hr>
+            <!--<label for="FirstName"> FirstName</label>
+            <input type="text" id="FirstName" name="FirstName" required>
+            <label for="LastName"> LastName</label>
+            <input type="text" id="LastName" name="LastName" 
+            required>
+            <label for="Email"> Email</label>
+            <input type="email" name="Email Add" id="Email" required>
+            <label for="Password"> Password</label> 
+            <input type="password" name="Password" id="Password" required>
+            <label for="Phone"> Phone</label>   
+            <input type="tel" name="Phone" id="Phone" required> -->
+        
+        </section>
+    </main>
+    <br>
+    <br>
+    <br>
+    <hr>
+    <!-- Footer section -->
+    <footer>
+        <p>&copy; 2023 Spider-Man Fan Page</p>
+    </footer>
+</body>
+</html>
