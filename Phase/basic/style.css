@@ -1,0 +1,83 @@
+*{ 
+    margin: 0;
+    padding: 0;
+    
+}
+/* 
+h1 selector, color: property, red: value
+we can change on our property that comes under selectors
+color have two types:
+1. foreground = color
+2. background = background-color
+color systems: RGB (Red green blue)
+color representation:
+1. hexadecimal or hex value #000
+2. RGB value RGB(170 187 204)
+3. normal with their name
+
+*/
+h2{
+    color: #ff0303;
+}
+h3{
+    color: RGB(170 187 204);
+}
+#abc{
+    background-color: #000;
+    color: pink;
+}
+
+.blog{
+    color:cyan;
+}
+button{
+    color: red;
+    background-color: green;
+}
+#text{
+    text-decoration: underline;
+    text-align: center;
+    text-family: 'Arial Narrow', Arial, sans-serif;
+    text-transform: uppercase;
+    text-indent: 10px;
+    text-shadow: 2px 12px 12px blue;
+    font-size: 120px;
+}
+#text2{
+    height: 50px;
+    text-decoration:overline;
+    text-align: right;
+}
+#text3{
+    text-decoration: line-through;
+    text-align: left;
+}
+
+.div1
+{ text-align: center;
+ border: 2px solid black;
+ width: 100px;
+ height: 100px;
+    background-color: red;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 100px;
+    box-shadow: 2px 2px 10px 2px blue;
+
+}
+
+
+
+
+
+
+
+/* 
+Selectors :
+1. Universal selector :*{ }
+2. Element selector: h1, h2, h3, p, div, etc ... h1{ }
+3. ID selector: #idname{ }
+4. Class selector: .classname{ }
+
+
+*/
