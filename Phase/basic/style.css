@@ -1,83 +1,95 @@
-*{ 
+*{
     margin: 0;
     padding: 0;
-    
 }
-/* 
-h1 selector, color: property, red: value
-we can change on our property that comes under selectors
-color have two types:
-1. foreground = color
-2. background = background-color
-color systems: RGB (Red green blue)
-color representation:
-1. hexadecimal or hex value #000
-2. RGB value RGB(170 187 204)
-3. normal with their name
-
-*/
-h2{
-    color: #ff0303;
-}
-h3{
-    color: RGB(170 187 204);
-}
-#abc{
-    background-color: #000;
-    color: pink;
-}
-
-.blog{
-    color:cyan;
-}
-button{
-    color: red;
-    background-color: green;
-}
-#text{
-    text-decoration: underline;
+/* Selectors:
+ * Universal: *{}
+ * Element: h1{}
+ * Class: .div1{}
+ * Id: #case{}
+ */
+h1{
+    color: #000;
     text-align: center;
-    text-family: 'Arial Narrow', Arial, sans-serif;
-    text-transform: uppercase;
-    text-indent: 10px;
-    text-shadow: 2px 12px 12px blue;
-    font-size: 120px;
-}
-#text2{
-    height: 50px;
-    text-decoration:overline;
-    text-align: right;
-}
-#text3{
-    text-decoration: line-through;
-    text-align: left;
-}
+    font-weight: 100;
+    font-size: 100px;
+    font-family: cursive, sans-serif, arial, Roboto;
 
-.div1
-{ text-align: center;
- border: 2px solid black;
- width: 100px;
- height: 100px;
+}
+.div1{
     background-color: red;
-    margin: 10px;
-    padding: 10px;
-    border-radius: 100px;
-    box-shadow: 2px 2px 10px 2px blue;
+    text-align: left;
+    font-weight:bold;
+    font-family: monospace;
+}
+.div2{
+    background-color: #fff;
+    text-align: right;
+    font-weight: bolder;
+    font-family: serif;
 
 }
+.div4{
+    background-color: blue;
+    color: white; 
+    text-align: center;
+    font-family: serif;
+}
 
+#case{
+    background-color: green;
+    font-weight: lighter;
 
+}
+#case1{
+    background-color: purple;
+}
+#case2{
+    background-color: yellow;
+}
 
-
-
-
-
+/* Units in CSS contains two types of units
+ * 1)Absolute units
+ * 2)Relative units
+ * Absolute units: px, pt, cm, mm, in, pc;
+ * Relative units: em, rem, vw, vh, %;
+ * box model
+ * content, padding, border, margin
+ * padding: 10px 20px 30px 40px;
+ * Units in CSS contains two types of units
+ * 1)Absolute units
+ * 2)Relative units
+ * Absolute units: px, pt, cm, mm, in, pc;
+ * Relative units: em, rem, vw, vh, %;
+ */
+/*============================================*/
+/* CSS Box Model
+ * 1)Content
+ */
+//1)Content
 /* 
-Selectors :
-1. Universal selector :*{ }
-2. Element selector: h1, h2, h3, p, div, etc ... h1{ }
-3. ID selector: #idname{ }
-4. Class selector: .classname{ }
 
+/*
+ * CSS BOX MODEL VISUAL REPRESENTATION
+ * 
+ * +---------------------------------------------+
+ * |                  MARGIN                     |
+ * |    +-----------------------------------+    |
+ * |    |            BORDER                 |    |
+ * |    |    +----------------------+       |    |
+ * |    |    |       PADDING        |       |    |
+ * |    |    |    +-----------+     |       |    |
+ * |    |    |    |           |     |       |    |
+ * |    |    |    |  CONTENT  |     |       |    |
+ * |    |    |    |           |     |       |    |
+ * |    |    |    +-----------+     |       |    |
+ * |    |    |        HEIGHT        |       |    |
+ * |    |    +----------------------+       |    |
+ * |    |             WIDTH                 |    |
+ * |    +-----------------------------------+    |
+ * |                                             |
+ * +---------------------------------------------+
+ 
+============================================
+ css box model */
 
-*/
