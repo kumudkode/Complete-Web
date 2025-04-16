@@ -1,6 +1,6 @@
 //memory is a crucial aspect of programming, as it determines how data is stored and accessed in a program.
 
-// Stack, heap and memory management are important concepts in programming that help manage memory efficiently and effectively.
+// Stack and  heap are two types of  memory management are important concepts in programming that help manage memory efficiently and effectively.
 
 // Stack memory is used for static memory allocation, while heap memory is used for dynamic memory allocation.
 
@@ -16,7 +16,7 @@
 //--------------------------------------------------------------
 //----------------------------------------------------------------
 // memory have two types:
-// 1. stack memory(primitive)
+// 1. stack memory(primitive) ---- variable copy 
 // 2. heap memory(Non-primitive)
 
 // PRIMITIVES (Passed by Value)
