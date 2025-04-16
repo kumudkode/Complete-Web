@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kumud | Full-Stack Developer</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.ico">
+    
+    <!-- Font imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS imports -->
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="jellyfish.css">
+    
+    <!-- Open Graph metadata for social sharing -->
+    <meta property="og:title" content="Kumud | Full-Stack Developer">
+    <meta property="og:description" content="Professional portfolio showcasing full-stack development projects and skills">
+    <meta property="og:image" content="https://images.pexels.com/photos/2255355/pexels-photo-2255355.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
+    <meta property="og:url" content="https://yourportfolio.com">
+    
+    <script src="jellyfish.js"></script>
+</head>
+<body>
+    <div class="ocean-container">
+        <div class="water-effect"></div>
+        <div class="jellyfish">
+            <div class="jellyfish-body">
+                <div class="jellyfish-inner"></div>
+                <div class="jellyfish-spots">
+                    <div class="jellyfish-spot"></div>
+                    <div class="jellyfish-spot"></div>
+                    <div class="jellyfish-spot"></div>
+                    <div class="jellyfish-spot"></div>
+                    <div class="jellyfish-spot"></div>
+                </div>
+            </div>
+            <div class="tentacles">
+                <div class="tentacle t1"></div>
+                <div class="tentacle t2"></div>
+                <div class="tentacle t3"></div>
+                <div class="tentacle t4"></div>
+                <div class="tentacle t5"></div>
+                <div class="tentacle t6"></div>
+                <div class="tentacle t7"></div>
+                <div class="tentacle t8"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header with sticky navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="#" aria-label="Home">
+                    <span class="logo-text">
+                        <span class="logo-main">Asha</span>
+                        <span class="logo-reveal">Poonia</span>
+                    </span>
+                </a>
+            </div>
+            
+            <nav class="main-nav">
+                <div class="theme-toggle-container">
+                    <button id="theme-toggle" aria-label="Toggle dark mode">
+                        <div class="toggle-track">
+                            <div class="toggle-sun">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="5"></circle>
+                                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                </svg>
+                            </div>
+                            <div class="toggle-moon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                </svg>
+                            </div>
+                            <div class="toggle-thumb"></div>
+                        </div>
+                    </button>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                
+                <ul class="nav-links">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero section with animated introduction -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="title">Full-Stack Developer</h1>
+                    <h2 class="subtitle">Building digital experiences that matter</h2>
+                    <p class="description">I create elegant, high-performance applications with clean code and thoughtful user experiences.</p>
+                    <div class="cta-buttons">
+                        <a href="#projects" class="primary-button">View Work</a>
+                        <a href="#contact" class="secondary-button">Get In Touch</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-container" aria-hidden="true">
+                        <!-- Replace with your profile image -->
+                        <div class="placeholder-image">
+                            <img src="https://images.pexels.com/photos/2255355/pexels-photo-2255355.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="img"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2>About Me</h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="about-content">
+                    <div class="about-text">
+                        <p class="highlight">I'm a full-stack developer passionate about creating seamless digital experiences that solve real problems.</p>
+                        <p>With expertise in modern frontend frameworks and backend technologies, I bridge the gap between design and functionality. My approach focuses on writing clean, maintainable code that performs exceptionally well.</p>
+                        <p>When I'm not coding, you'll find me exploring new technologies, contributing to open source, or mentoring aspiring developers.</p>
+                        <div class="about-stack">
+                            <p class="stack-title">Tech Stack:</p>
+                            <div class="tech-list">
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">React.js</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">Next.js</span>
+                                <span class="tech-tag">MongoDB</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">Docker</span>
+                            </div>
+                        </div>
+                        <div class="about-cta">
+                            <a href="#" class="download-cv">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                                Download CV
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">30+</span>
+                            <span class="stat-label">Projects Completed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Happy Clients</span>
+                        </div>
+                        <div class="about-skills-preview">
+                            <div class="skill-icon" title="JavaScript">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="var(--color-accent)">
+                                    <path d="M3 3h18v18H3V3zm16.525 13.707c-.131-.821-.666-1.511-2.252-2.155-.552-.259-1.165-.438-1.349-.854-.068-.248-.078-.382-.034-.529.113-.484.687-.629 1.137-.495.293.09.563.315.732.676.775-.507.775-.507 1.316-.844-.203-.314-.304-.451-.439-.586-.473-.528-1.103-.798-2.126-.775l-.528.067c-.507.124-.991.395-1.283.754-.855.968-.608 2.655.427 3.354 1.023.765 2.521.933 2.712 1.653.18.878-.652 1.159-1.475 1.058-.607-.136-.945-.439-1.316-1.002l-1.372.788c.157.359.337.517.607.832 1.305 1.316 4.568 1.249 5.153-.754.021-.067.18-.528.056-1.237l.034.049zm-6.737-5.434h-1.686c0 1.453-.007 2.898-.007 4.354 0 .924.047 1.772-.104 2.033-.247.517-.886.451-1.175.359-.297-.146-.448-.349-.623-.641-.047-.078-.082-.146-.095-.146l-1.368.844c.229.473.563.879.994 1.137.641.383 1.502.507 2.404.305.588-.17 1.095-.519 1.358-1.059.384-.697.302-1.553.299-2.509.008-1.541 0-3.083 0-4.635l.003-.042z"/>
+                                </svg>
+                            </div>
+                            <div class="skill-icon" title="React">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="var(--color-accent)">
+                                    <path d="M12 9.861A2.139 2.139 0 1 0 12 14.139 2.139 2.139 0 1 0 12 9.861zM6.008 16.255l-.472-.12C2.018 15.246 0 13.737 0 11.996s2.018-3.25 5.536-4.139l.472-.119.133.468a23.53 23.53 0 0 0 1.363 3.578l.101.213-.101.213a23.307 23.307 0 0 0-1.363 3.578l-.133.467zM5.317 8.95c-2.674.751-4.315 1.9-4.315 3.046 0 1.145 1.641 2.294 4.315 3.046a24.95 24.95 0 0 1 1.182-3.046A24.752 24.752 0 0 1 5.317 8.95zM17.992 16.255l-.133-.469a23.357 23.357 0 0 0-1.364-3.577l-.101-.213.101-.213a23.42 23.42 0 0 0 1.364-3.578l.133-.468.473.119c3.517.889 5.535 2.398 5.535 4.14s-2.018 3.25-5.535 4.139l-.473.12zm-.491-4.259c.48 1.039.877 2.06 1.182 3.046 2.675-.752 4.315-1.901 4.315-3.046 0-1.146-1.641-2.294-4.315-3.046a24.788 24.788 0 0 1-1.182 3.046zM5.31 8.945l-.133-.467C4.188 4.992 4.488 2.494 6 1.622c1.483-.856 3.864.155 6.359 2.716l.34.349-.34.349a23.552 23.552 0 0 0-2.422 2.967l-.135.193-.235.02a23.657 23.657 0 0 0-3.785.61l-.472.119zm1.896-6.63c-.268 0-.505.058-.705.173-.994.573-1.17 2.565-.485 5.253a25.122 25.122 0 0 1 3.233-.501 24.847 24.847 0 0 1 2.052-2.544c-1.56-1.519-3.037-2.381-4.095-2.381zM16.795 22.677c-.001 0-.001 0 0 0-1.425 0-3.255-1.073-5.154-3.023l-.34-.349.34-.349a23.53 23.53 0 0 0 2.421-2.968l.135-.193.234-.02a23.63 23.63 0 0 0 3.787-.609l.472-.119.134.468c.987 3.484.688 5.983-.824 6.854a2.38 2.38 0 0 1-1.205.308zm-4.096-3.381c1.56 1.519 3.037 2.381 4.095 2.381h.001c.267 0 .505-.058.704-.173.994-.573 1.171-2.566.485-5.254a25.02 25.02 0 0 1-3.234.501 24.674 24.674 0 0 1-2.051 2.545zM18.69 8.945l-.472-.119a23.479 23.479 0 0 0-3.787-.61l-.234-.02-.135-.193a23.414 23.414 0 0 0-2.421-2.967l-.34-.349.34-.349C14.135 1.778 16.515.767 18 1.622c1.512.872 1.812 3.37.824 6.855l-.134.468zM14.75 7.24c1.142.104 2.227.273 3.234.501.686-2.688.509-4.68-.485-5.253-.988-.571-2.845.304-4.8 2.208A24.849 24.849 0 0 1 14.75 7.24zM7.206 22.677A2.38 2.38 0 0 1 6 22.369c-1.512-.871-1.812-3.369-.823-6.854l.132-.468.472.119c1.155.291 2.429.496 3.785.609l.235.02.134.193a23.596 23.596 0 0 0 2.422 2.968l.34.349-.34.349c-1.898 1.95-3.728 3.023-5.151 3.023zm-1.19-6.427c-.686 2.688-.509 4.681.485 5.254.987.563 2.843-.305 4.8-2.208a24.998 24.998 0 0 1-2.052-2.545 24.976 24.976 0 0 1-3.233-.501zM12 16.878c-.823 0-1.669-.036-2.516-.106l-.235-.02-.135-.193a30.388 30.388 0 0 1-1.35-2.122 30.354 30.354 0 0 1-1.166-2.228l-.1-.213.1-.213a30.3 30.3 0 0 1 1.166-2.228c.414-.716.869-1.43 1.35-2.122l.135-.193.235-.02a29.785 29.785 0 0 1 5.033 0l.234.02.134.193a30.006 30.006 0 0 1 2.517 4.35l.101.213-.101.213a29.6 29.6 0 0 1-2.517 4.35l-.134.193-.234.02c-.847.07-1.694.106-2.517.106zm-2.197-1.084c1.48.111 2.914.111 4.395 0a29.006 29.006 0 0 0 2.196-3.798 28.585 28.585 0 0 0-2.197-3.798 29.031 29.031 0 0 0-4.394 0 28.477 28.477 0 0 0-2.197 3.798 29.114 29.114 0 0 0 2.197 3.798z"/>
+                                </svg>
+                            </div>
+                            <div class="skill-icon" title="Node.js">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="var(--color-accent)">
+                                    <path d="M12 1.85c-.27 0-.55.07-.78.2l-7.44 4.3c-.48.28-.78.8-.78 1.36v8.58c0 .56.3 1.08.78 1.36l1.95 1.12c.95.46 1.27.47 1.7.47 1.38 0 2.17-.84 2.17-2.3V9.04c0-.12-.1-.22-.22-.22h-.93c-.12 0-.22.1-.22.22v7.54c0 .66-.68 1.31-1.77.76L3.27 16.23a.26.26 0 01-.13-.22V7.96c0-.1.05-.2.13-.26l7.4-4.29c.08-.04.17-.04.25 0l7.4 4.29c.08.06.13.15.13.26v8.06c0 .11-.04.17-.12.22l-7.4 4.29c-.08.05-.17.05-.25 0l-1.87-1.14a.182.182 0 00-.23 0c-.57.32-.68.36-1.21.52-.13.04-.3.11.07.32l2.48 1.47c.24.14.5.21.78.21s.54-.07.78-.21l7.44-4.29c.48-.28.78-.8.78-1.36V7.7c0-.56-.3-1.08-.78-1.36l-7.44-4.3c-.23-.12-.5-.19-.78-.19M14 8c-2.12 0-3.39.89-3.39 2.39 0 1.61 1.26 2.08 3.3 2.28 2.43.24 2.62.6 2.62 1.08 0 .83-.67 1.18-2.23 1.18-1.98 0-2.4-.5-2.54-1.47-.01-.1-.1-.18-.21-.18h-.96c-.12 0-.21.1-.21.22 0 1.24.68 2.74 3.92 2.74 2.36 0 3.7-.93 3.7-2.55 0-1.61-1.08-2.03-3.37-2.34-2.31-.3-2.54-.46-2.54-1 0-.45.2-1.05 1.91-1.05 1.5 0 2.09.33 2.32 1.36.02.1.11.17.21.17h.97c.05 0 .11-.02.15-.07.04-.04.07-.1.05-.16-.14-1.78-1.32-2.6-3.7-2.6z"/>
+                                </svg>
+                            </div>
+                            <div class="skill-icon" title="TypeScript">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="var(--color-accent)">
+                                    <path d="M3 3h18v18H3V3zm10.71 14.29c.18.19.43.3.7.3a1.003 1.003 0 0 0 .71-1.71c-.18-.18-.43-.29-.71-.29a1.003 1.003 0 0 0-.7 1.7zM12 13.54L9.82 17H8.53l3.12-4.67-3.36-4.67h1.33L12 11.07l2.38-3.41h1.33l-3.36 4.67L15.47 17h-1.29L12 13.54zm2.12-7.79l-7.79 7.79-.71-.71 7.79-7.79.71.71z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects section -->
+        <section id="projects" class="projects">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Featured Projects</h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.pexels.com/photos/2255355/pexels-photo-2255355.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Project name" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">E-Commerce Platform</h3>
+                            <p class="project-description">A full-featured online store with real-time inventory, secure payment processing, and customer analytics.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">MongoDB</span>
+                                <span class="tech-tag">AWS</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">View Project</a>
+                                <a href="#" class="project-link">Source Code</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Project 2 -->
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.pexels.com/photos/2255355/pexels-photo-2255355.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Project name" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Real-Time Dashboard</h3>
+                            <p class="project-description">Data visualization platform with real-time updates, customizable widgets, and predictive analytics.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Vue.js</span>
+                                <span class="tech-tag">Flask</span>
+                                <span class="tech-tag">PostgreSQL</span>
+                                <span class="tech-tag">WebSockets</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">View Project</a>
+                                <a href="#" class="project-link">Source Code</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Project 3 -->
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.pexels.com/photos/2255355/pexels-photo-2255355.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Project name" loading="lazy">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">AI-Powered Task Manager</h3>
+                            <p class="project-description">Intelligent task management application that prioritizes work based on deadlines, importance, and user habits.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Next.js</span>
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">Express</span>
+                                <span class="tech-tag">TensorFlow</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">View Project</a>
+                                <a href="#" class="project-link">Source Code</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                
+                <div class="projects-cta">
+                    <a href="#" class="text-button">View All Projects <span class="arrow">→</span></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills section -->
+        <section id="skills" class="skills">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Technical Skills</h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="skills-content">
+                    <div class="skill-category">
+                        <h3>Frontend Development</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <div class="skill-icon" aria-hidden="true">
+                                    <!-- Icon will be added via CSS -->
+                                </div>
+                                <h4>React / Next.js</h4>
+                                <div class="skill-level" data-level="95">
+                                    <div class="level-bar"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon" aria-hidden="true"></div>
+                                <h4>TypeScript</h4>
+                                <div class="skill-level" data-level="90">
+                                    <div class="level-bar"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon" aria-hidden="true"></div>
+                                <h4>CSS / SASS</h4>
+                                <div class="skill-level" data-level="95">
+                                    <div class="level-bar"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon" aria-hidden="true"></div>
+                                <h4>Responsive Design</h4>
+                                <div class="skill-level" data-level="95">
+                                    <div class="level-bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Backend Development</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <div class="skill-icon" aria-hidden="true"></div>
+                                <h4>Node.js / Express</h4>
+                                <div class="skill-level" data-level="90">
+                                    <div class="level-bar"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon" aria-hidden="true"></div>
+                                <h4>Python / Django</h4>
+                                <div class="skill-level" data-level="85">
+                                    <div class="level-bar"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon" aria-hidden="true"></div>
+                                <h4>RESTful APIs</h4>
+                                <div class="skill-level" data-level="95">
+                                    <div class="level-bar"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon" aria-hidden="true"></div>
+                                <h4>GraphQL</h4>
+                                <div class="skill-level" data-level="85">
+                                    <div class="level-bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Database & DevOps</h3>
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <div class="skill-icon" aria-hidden="true"></div>
+                                <h4>MongoDB</h4>
+                                <div class="skill-level" data-level="90">
+                                    <div class="level-bar"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon" aria-hidden="true"></div>
+                                <h4>SQL / PostgreSQL</h4>
+                                <div class="skill-level" data-level="85">
+                                    <div class="level-bar"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon" aria-hidden="true"></div>
+                                <h4>Docker / Kubernetes</h4>
+                                <div class="skill-level" data-level="80">
+                                    <div class="level-bar"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-icon" aria-hidden="true"></div>
+                                <h4>CI/CD Pipelines</h4>
+                                <div class="skill-level" data-level="85">
+                                    <div class="level-bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Experience section -->
+        <section id="experience" class="experience">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Work Experience</h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="experience-timeline">
+                    <!-- Experience 1 -->
+                    <div class="experience-item">
+                        <div class="experience-date">
+                            <span>2022 - Present</span>
+                        </div>
+                        <div class="experience-content">
+                            <h3 class="experience-title">Senior Full-Stack Developer</h3>
+                            <p class="experience-company">TechInnovate Solutions</p>
+                            <p class="experience-description">Lead development of enterprise-level applications, mentor junior developers, and architect scalable solutions used by Fortune 500 clients.</p>
+                            <ul class="experience-bullets">
+                                <li>Reduced application load time by 40% through code optimization and implementation of lazy loading strategies</li>
+                                <li>Architected microservice infrastructure that improved system reliability by 99.98%</li>
+                                <li>Led team of 5 developers to deliver projects consistently ahead of schedule</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Experience 2 -->
+                    <div class="experience-item">
+                        <div class="experience-date">
+                            <span>2020 - 2022</span>
+                        </div>
+                        <div class="experience-content">
+                            <h3 class="experience-title">Full-Stack Developer</h3>
+                            <p class="experience-company">Digital Craft Studios</p>
+                            <p class="experience-description">Designed and developed custom web applications for clients across various industries including fintech, healthcare, and e-commerce.</p>
+                            <ul class="experience-bullets">
+                                <li>Built high-performance React applications with server-side rendering for improved SEO</li>
+                                <li>Implemented secure payment processing systems handling over $2M in annual transactions</li>
+                                <li>Developed custom CMS solutions that improved content management efficiency by 60%</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Experience 3 -->
+                    <div class="experience-item">
+                        <div class="experience-date">
+                            <span>2018 - 2020</span>
+                        </div>
+                        <div class="experience-content">
+                            <h3 class="experience-title">Frontend Developer</h3>
+                            <p class="experience-company">WebSphere Tech</p>
+                            <p class="experience-description">Created responsive, cross-browser compatible user interfaces for web applications and corporate websites.</p>
+                            <ul class="experience-bullets">
+                                <li>Converted legacy applications to modern React-based architecture</li>
+                                <li>Implemented accessibility improvements resulting in WCAG 2.1 AA compliance</li>
+                                <li>Collaborated with design team to create component library used across multiple projects</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Get In Touch</h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <p class="contact-text">Have a project in mind or want to discuss potential opportunities? I'd love to hear from you. Feel free to reach out through any of the channels below:</p>
+                        
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <div class="method-icon" aria-hidden="true"></div>
+                                <div class="method-details">
+                                    <h3></h3>
+                                    <p><a href="mailto:raj94971@gmail.com">Email</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="method-icon" aria-hidden="true"></div>
+                                <div class="method-details">
+                                    <h3></h3>
+                                    <p><a href="https://linkedin.com/in/kumudkode" target="_blank" rel="noopener">Linkedin</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="method-icon" aria-hidden="true"></div>
+                                <div class="method-details">
+                                    <h3></h3>
+                                    <p><a href="https://github.com/kumudkode" target="_blank" rel="noopener">GitHub</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-container">
+                        <form id="contact-form" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-button">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#" aria-label="Home">
+                        <span>Kumud</span>
+                    </a>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="#" class="social-link" aria-label="GitHub">
+                        <span class="sr-only">GitHub</span>
+                        <!-- Icon will be added via CSS -->
+                    </a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <span class="sr-only">LinkedIn</span>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <span class="sr-only">Twitter</span>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Medium">
+                        <span class="sr-only">Medium</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">© 2025 Kumud. All rights reserved.</p>
+                <p class="credit">Designed & built with ❤️</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="audio-controls">
+        <button id="sound-toggle" aria-label="Toggle sound effects">
+            <span class="sound-icon sound-on"></span>
+        </button>
+    </div>
+
+    <div class="menu-overlay"></div>
+
+    <!-- JavaScript imports -->
+    <script src="scripts.js" defer></script>
+</body>
+</html>

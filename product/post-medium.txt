@@ -1,0 +1,381 @@
+Building an Interactive Maze Runner: A Step-by-Step Journey into Algorithmic Visualization
+<img alt="Maze Runner Header Image" src="https://i.imgur.com/placeholder-for-maze-header.jpg">
+Introduction
+Have you ever been fascinated by mazes? These puzzles have captivated human minds for centuries, from ancient labyrinths to modern algorithmic challenges. Today, I'm excited to share my journey of creating an interactive Maze Runner application that brings together algorithm visualization, interactive gameplay, and modern web design principles.
+
+This project wasn't just about creating a game but building an engaging platform to visualize how pathfinding algorithms work in real-time while providing an enjoyable user experience. Let's dive into the creation process and explore the technical intricacies behind this maze generator and solver.
+
+Project Overview
+Our Maze Runner application offers a complete maze experience with the following features:
+
+Dynamic maze generation with adjustable complexity
+Interactive maze solving with visual algorithm tracking
+Manual navigation using keyboard arrows
+Performance metrics for generation and solving
+Stunning visual effects with animations and particle systems
+Dark/light theme toggle
+Responsive design for all devices
+Move counter and best score tracking
+The project is built using pure vanilla technologies:
+
+HTML5 for structure
+CSS3 for styling and animations
+JavaScript for interactivity and algorithms
+No frameworks or libraries were used, making this a perfect example of what can be achieved with core web technologies.
+
+Maze Generation Algorithm
+The heart of our application is the maze generation algorithm. I implemented a recursive backtracking algorithm, which creates perfect mazes (mazes with exactly one path between any two points).
+function recursiveBacktracking(x, y) {
+    maze[y][x].visited = true;
+    
+    // Define possible directions (dx, dy)
+    const directions = [
+        [0, -1, 'top', 'bottom'], // top
+        [1, 0, 'right', 'left'],  // right
+        [0, 1, 'bottom', 'top'],  // bottom
+        [-1, 0, 'left', 'right']  // left
+    ];
+    
+    // Shuffle directions for randomness
+    shuffleArray(directions);
+    
+    // Try each direction
+    for (const [dx, dy, wall1, wall2] of directions) {
+        const newX = x + dx;
+        const newY = y + dy;
+        
+        // Check if the new position is valid and not visited
+        if (newX >= 0 && newX < size && newY >= 0 && newY < size && !maze[newY][newX].visited) {
+            // Remove walls between current cell and new cell
+            maze[y][x].walls[wall1] = false;
+            maze[newY][newX].walls[wall2] = false;
+            
+            // Recurse with the new position
+            recursiveBacktracking(newX, newY);
+        }
+    }
+}
+
+======================================================================
+This algorithm works by:
+
+Starting at a random cell
+Randomly selecting an unvisited neighbor
+Removing the wall between the current cell and the selected neighbor
+Moving to the selected neighbor and repeating until there are no unvisited neighbors
+Backtracking to the last cell with unvisited neighbors and continuing
+The result is a perfect maze with no loops or isolated sections, ensuring exactly one path between any two points in the maze.
+
+Maze Solving: A* Pathfinding Algorithm
+For solving the maze, I implemented the A* pathfinding algorithm, which is widely considered one of the most efficient pathfinding algorithms for finding the shortest path.
+
+======================================================================
+async function solveMaze() {
+    if (solving) return;
+    solving = true;
+    solveBtn.disabled = true;
+    
+    const startTime = performance.now();
+    
+    // Reset visited state for solving
+    for (let y = 0; y < size; y++) {
+        for (let x = 0; x < size; x++) {
+            maze[y][x].visited = false;
+            maze[y][x].parent = null;
+            maze[y][x].g = Infinity;
+            maze[y][x].f = Infinity;
+        }
+    }
+    
+    // A* algorithm
+    const openSet = [];
+    const closedSet = [];
+    
+    // Start with player position
+    const startNode = maze[playerPosition.y][playerPosition.x];
+    startNode.g = 0;
+    startNode.f = heuristic(playerPosition, endPosition);
+    openSet.push(startNode);
+    
+    // Animation delay
+    const delay = time => new Promise(resolve => setTimeout(resolve, time));
+    
+    let solution = false;
+    
+    // Main algorithm loop
+    while (openSet.length > 0) {
+        // Find node with lowest f value
+        let currentIndex = 0;
+        for (let i = 0; i < openSet.length; i++) {
+            if (openSet[i].f < openSet[currentIndex].f) {
+                currentIndex = i;
+            }
+        }
+        
+        const current = openSet[currentIndex];
+        
+        // Check if we've reached the end
+        if (current.x === endPosition.x && current.y === endPosition.y) {
+            solution = true;
+            break;
+        }
+        
+        // Process current node
+        openSet.splice(currentIndex, 1);
+        closedSet.push(current);
+        
+        // Visualize visited cells
+        if (!(current.x === playerPosition.x && current.y === playerPosition.y) && 
+            !(current.x === endPosition.x && current.y === endPosition.y)) {
+            const cellElement = getCellElement(current.x, current.y);
+            cellElement.classList.add('visited');
+        }
+        
+        await delay(10);
+        
+        // Process neighbors
+        const neighbors = getValidNeighbors(current);
+        
+        for (const neighbor of neighbors) {
+            // A* algorithm implementation
+            // [code continues...]
+        }
+    }
+    
+    // Trace and animate solution path
+    // [code continues...]
+}
+======================================================================
+The A* algorithm uses a heuristic function to estimate the distance to the goal, making it more efficient than other pathfinding algorithms like Dijkstra's algorithm. In our implementation, we use the Manhattan distance as the heuristic:
+=====================================================================
+function heuristic(a, b) {
+    return Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
+}
+=====================================================================
+The visualization of the solving process is what makes this implementation particularly interesting. As the algorithm explores the maze, cells are colored based on their state:
+
+Visited cells (explored but not part of the final path)
+Path cells (the final solution path)
+Current position (where the player marker is)
+Creating Visual Magic
+The visual appeal of the application was a major focus. I implemented several visual effects to enhance the user experience:
+
+Dynamic Lighting Effect
+One of the standout features is the dynamic lighting effect that follows the user's cursor, creating a spotlight effect on the maze:
+
+=====================================================================
+.maze-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        circle at var(--light-position), 
+        rgba(255,255,255,0.2) 0%, 
+        transparent 60%
+    );
+    pointer-events: none;
+    z-index: 5;
+    opacity: 0.8;
+    border-radius: 12px;
+    transition: all 0.8s;
+}
+====================================================================
+This effect is controlled by JavaScript that tracks mouse movement:
+
+==================================================================
+mazeElement.addEventListener('mousemove', (e) => {
+    const rect = mazeElement.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    
+    document.querySelector('.maze-container').style.setProperty(
+        '--light-position', `${x}% ${y}%`
+    );
+});
+====================================================================
+Particle Effects
+To add life to the start and end points, I created subtle particle animations:
+@keyframes particles {
+    0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+    50% { transform: translateY(-10px) translateX(5px); opacity: 0.8; }
+}
+
+.start::after,
+.end::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(255,255,255,0.8);
+    animation: particles 3s ease-in-out infinite;
+    top: calc(50% + var(--particle-offset-y, 0px));
+    left: calc(50% + var(--particle-offset-x, 0px));
+    z-index: 11;
+}
+==============================================================================
+Player Movement and Trail Effects
+Player movement is handled through keyboard arrow key controls:
+
+=============================================================================
+function handleKeyPress(e) {
+    if (solving) return;
+    
+    // Prevent default scrolling behavior
+    if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
+        e.preventDefault();
+    }
+    
+    let newX = playerPosition.x;
+    let newY = playerPosition.y;
+    
+    // Determine direction based on key press
+    switch (e.key) {
+        case 'ArrowUp':
+            if (!maze[playerPosition.y][playerPosition.x].walls.top) newY--;
+            break;
+        case 'ArrowRight':
+            if (!maze[playerPosition.y][playerPosition.x].walls.right) newX++;
+            break;
+        case 'ArrowDown':
+            if (!maze[playerPosition.y][playerPosition.x].walls.bottom) newY++;
+            break;
+        case 'ArrowLeft':
+            if (!maze[playerPosition.y][playerPosition.x].walls.left) newX--;
+            break;
+        default:
+            return;
+    }
+    
+    // Process valid moves
+    // [code continues...]
+}
+
+==================================================================================
+To enhance the visual feedback of player movement, I added a trail effect that follows the player:
+==================================================================================
+// Add trail effect
+const oldCell = getCellElement(playerPosition.x, playerPosition.y);
+const trail = document.createElement('div');
+trail.className = 'trail';
+trail.style.left = '40%';
+trail.style.top = '40%';
+oldCell.appendChild(trail);
+setTimeout(() => oldCell.removeChild(trail), 1000);
+
+==================================================================================
+Dark Mode and Accessibility
+Implementing a dark mode was essential for accessibility and user comfort:
+==================================================================================
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+    if (document.body.classList.contains('dark-theme')) {
+        document.documentElement.style.setProperty('--floor-color', '#1a202c');
+        document.documentElement.style.setProperty('--wall-color', '#4a5568');
+        document.documentElement.style.setProperty('--wall-highlight', '#718096');
+        document.documentElement.style.setProperty('--wall-shadow', '#2d3748');
+        document.body.style.background = 'linear-gradient(135deg, #1a202c 0%, #2d3748 100%)';
+        document.body.style.color = '#f7fafc';
+        
+        // Update specific UI elements
+        moveCounter.style.backgroundColor = '#2d3748';
+        moveCounter.style.color = '#f7fafc';
+    } else {
+        // Reset to light theme
+        // [code continues...]
+    }
+});
+
+==================================================================================
+
+Additionally, I included a media query for users who prefer reduced motion:
+==================================================================================
+@media (prefers-reduced-motion) {
+    * {
+        animation: none !important;
+        transition: background-color 0.2s ease, color 0.2s ease !important;
+    }
+}
+
+===================================================================================
+Technical Challenges and Solutions
+Fixing Scrollbar Issues
+One challenge was preventing the viewport from scrolling when using arrow keys for navigation:
+===============================================================================
+// Prevent default scrolling behavior
+if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
+    e.preventDefault();
+}
+===============================================================================
+Additionally, changing the container overflow property helped eliminate unwanted scrollbars:
+==================================================================================
+.maze-container {
+    /* Change from overflow: auto to overflow: hidden */
+    overflow: hidden;
+}
+==================================================================================
+
+Making the UI Responsive
+To ensure the maze works on different screen sizes, I implemented responsive design principles:
+=====================================================================================
+@media (max-width: 768px) {
+    :root {
+        --cell-size: 22px;
+        --border-width: 1.5px;
+    }
+    
+    .container {
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+======================================================================================
+
+Learning Outcomes
+Building this project taught me several valuable lessons:
+
+Algorithm Visualization: Learning how to visually represent complex algorithms like A* pathfinding helps in understanding their mechanics better.
+
+Performance Optimization: Careful consideration of animation performance and DOM manipulation is crucial for smooth experiences.
+
+CSS Animation Techniques: Using CSS for complex animations can be more performant than JavaScript alternatives.
+
+Accessibility Considerations: Designing with accessibility in mind from the start creates a better experience for all users.
+
+Pure Vanilla JS Power: Modern vanilla JavaScript and CSS are incredibly powerful and can create rich interactive experiences without external libraries.
+
+Future Enhancements
+While the current implementation is feature-complete, there are several enhancements that could be added:
+
+Multiple Algorithm Options: Adding different maze generation algorithms (Prim's, Kruskal's, etc.) and comparing their results.
+
+3D Perspective Mode: Adding a toggle for a 3D perspective view of the maze.
+
+Time Challenge Mode: Adding timed challenges with increasing difficulty.
+
+Multiplayer Race: Implementing WebSocket connectivity for head-to-head maze solving races.
+
+Maze Export/Import: Allowing users to save, share, and load custom mazes.
+
+Conclusion
+Creating this Maze Runner application was both challenging and rewarding. It demonstrates how combining algorithmic thinking with creative design can result in an engaging interactive experience.
+
+The project showcases the power of modern web technologies and proves that complex visualizations and games can be built without relying on heavyweight frameworks or libraries.
+
+I hope this breakdown of my maze generator and solver inspires you to explore algorithmic visualization in your own projects. The combination of visual appeal and educational value makes this type of project particularly satisfying to build.
+
+Have you built something similar or have ideas to enhance this project? I'd love to hear your thoughts and suggestions in the comments below!
+
+You can find the complete source code for this project on GitHub.

@@ -1,0 +1,17 @@
+🧩 Just Launched: Interactive Maze Runner with Algorithm Visualization
+I'm excited to share a project I've been working on - an interactive Maze Runner built with vanilla JavaScript, CSS, and HTML!
+
+Key Features:
+
+Dynamic maze generation using recursive backtracking
+Visual A* pathfinding algorithm with real-time tracking
+Interactive keyboard navigation
+Light/dark mode with smooth transitions
+Dynamic lighting effects that follow cursor movement
+Particle animations and trail effects
+Fully responsive design
+This project was a great opportunity to dive deep into algorithmic visualization while creating an engaging UI experience. No frameworks or libraries were used - just pure web technologies demonstrating what's possible with modern CSS and JavaScript!
+
+Check out the live demo (link in comments) and let me know what you think! Interested in how it works? I've written a detailed breakdown on Medium.
+
+#WebDevelopment #JavaScript #CSS #Algorithms #InteractiveVisualization #FrontEndDev
