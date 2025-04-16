@@ -17,7 +17,7 @@
 //----------------------------------------------------------------
 // memory have two types:
 // 1. stack memory(primitive) ---- variable copy 
-// 2. heap memory(Non-primitive)
+// 2. heap memory(Non-primitive) ---- reference of original value so whenever we change something then original value will also change
 
 // PRIMITIVES (Passed by Value)
 // When we declare a variable with a primitive value (like string, number, boolean),
