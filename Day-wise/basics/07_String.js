@@ -10,7 +10,7 @@ console.log(`My name is ${userName.toUpperCase()}`)
 
 const gameName = new String('raj_game') // here we are creating a string object using "new"
 console.log(gameName[0]); // here we are accessing the first element of the string i.e an object not array
-console.log(gameName.__proto__); // here we are accessing the prototype of the string object
+console.log(gameName.__proto__); // here we are accessing the prototype of the string i.e object
 
 //if we have to master string we have to master these methods
 // 1.length
@@ -21,7 +21,8 @@ console.log(gameName.charAt(2))
 // 3.indexOf
 console.log(gameName.indexOf('a'))
 // 4.slice
-console.log(gameName.slice(2,4))
+console.log(gameName.slice(2,4)) // 
+
 console.log(gameName.slice(-8, -6))
 // 5.substring
 console.log(gameName.substring(2,4))
@@ -38,3 +39,17 @@ console.log(gameName.toUpperCase())
 console.log(gameName.toLowerCase())
 // 11.concat
 console.log(gameName.concat(' is a good boy'))
+
+const anotherString = gameName.slice(-2,4)
+console.log(anotherString);
+
+const newStringOne = " hitesh    "
+console.log(newStringOne);
+console.log(newStringOne.trim()); // this will remove the spaces from the start and end of the string
+const newStringTwo = newStringOne.trim()
+
+const url = "https://www.google.com"
+
+console.log(url.replace('%20', '_')); // this will replace the %20 with space
+
+console.log(url.includes('google')); // this will check if the string contains google or not

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Editor Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h1 class="logo">Photo<span>Edit</span></h1>
+            
+            <div class="tools">
+                <div class="tool-group">
+                    <h3>Adjustments</h3>
+                    <label>Brightness</label>
+                    <input type="range" id="brightness" min="-100" max="100" value="0">
+                    
+                    <label>Contrast</label>
+                    <input type="range" id="contrast" min="-100" max="100" value="0">
+                    
+                    <label>Saturation</label>
+                    <input type="range" id="saturation" min="-100" max="100" value="0">
+
+                    <label>Exposure</label>
+                    <input type="range" id="exposure" min="-100" max="100" value="0">
+
+                    <label>Highlights</label>
+                    <input type="range" id="highlights" min="-100" max="100" value="0">
+                    
+                    <label>Shadows</label>
+                    <input type="range" id="shadows" min="-100" max="100" value="0">
+                    
+                    <label>Temperature</label>
+                    <input type="range" id="temperature" min="-100" max="100" value="0">
+                    
+                    <label>Tint</label>
+                    <input type="range" id="tint" min="-100" max="100" value="0">
+
+                    <label>Sharpness</label>
+                    <input type="range" id="sharpness" min="0" max="100" value="0">
+
+                    <label>Vignette</label>
+                    <input type="range" id="vignette" min="0" max="100" value="0">
+                </div>
+
+                <div class="tool-group">
+                    <h3>Transform</h3>
+                    <div class="transform-buttons">
+                        <button id="rotate-left">
+                            <i class="fa fa-rotate-left"></i>
+                            <span>Rotate Left</span>
+                        </button>
+                        <button id="rotate-right">
+                            <i class="fa fa-rotate-right"></i>
+                            <span>Rotate Right</span>
+                        </button>
+                        <button id="flip-h">
+                            <i class="fa fa-arrows-left-right"></i>
+                            <span>Flip H</span>
+                        </button>
+                        <button id="flip-v">
+                            <i class="fa fa-arrows-up-down"></i>
+                            <span>Flip V</span>
+                        </button>
+                        <button id="crop">
+                            <i class="fa fa-crop-alt"></i>
+                            <span>Crop</span>
+                        </button>
+                        <button id="rotate-custom">
+                            <i class="fa fa-sync"></i>
+                            <span>Fine Rotate</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="tool-group">
+                    <h3>Filters</h3>
+                    <div class="filter-buttons">
+                        <button class="filter-btn" data-filter="vintage">Vintage</button>
+                        <button class="filter-btn" data-filter="grayscale">B&W</button>
+                        <button class="filter-btn" data-filter="sepia">Sepia</button>
+                        <button class="filter-btn" data-filter="invert">Invert</button>
+                        <button class="filter-btn" data-filter="vivid">Vivid</button>
+                        <button class="filter-btn" data-filter="dramatic">Dramatic</button>
+                        <button class="filter-btn" data-filter="mono">Mono</button>
+                        <button class="filter-btn" data-filter="noir">Noir</button>
+                        <button class="filter-btn" data-filter="chrome">Chrome</button>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button id="undo"><i class="fa fa-undo"></i></button>
+                    <button id="redo"><i class="fa fa-redo"></i></button>
+                    <button id="reset">Reset</button>
+                    <button id="download">Download</button>
+                </div>
+            </div>
+        </aside>
+
+        <main class="content">
+            <div class="image-upload">
+                <input type="file" id="fileInput" accept="image/*">
+                <div class="drop-zone">
+                    <i class="fa fa-cloud-upload-alt fa-2x"></i>
+                    <span>Drag & Drop</span>
+                    <span>or Click to Upload</span>
+                </div>
+            </div>
+            <div class="image-container">
+                <img id="previewImage" alt="Preview">
+                <div class="crop-overlay">
+                    <div class="crop-area"></div>
+                    <div class="crop-controls">
+                        <button id="apply-crop">Apply</button>
+                        <button id="cancel-crop">Cancel</button>
+                    </div>
+                </div>
+
+                <!-- Add this after your existing crop-overlay div -->
+                <div class="image-effects">
+                    <div class="effect-glow"></div>
+                    <div class="effect-reflection"></div>
+                </div>
+
+                <!-- Add iOS-style aspect ratio control to crop overlay -->
+                <div class="aspect-ratio-controls">
+                    <button data-ratio="free" class="aspect-ratio-btn active">Free</button>
+                    <button data-ratio="1:1" class="aspect-ratio-btn">Square</button>
+                    <button data-ratio="4:3" class="aspect-ratio-btn">4:3</button>
+                    <button data-ratio="16:9" class="aspect-ratio-btn">16:9</button>
+                </div>
+
+                <div class="loading">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
