@@ -144,13 +144,12 @@ Every website interaction follows this pattern:
 ├─────────────────┤
 │ Network Access  │ Ethernet, Wi-Fi
 └─────────────────┘
-
 TCP vs UDP:
 ┌─────────────────┐          ┌──────────────────┐
 │ TCP             │          │ UDP              │
 ├─────────────────┤          ├──────────────────┤
 │ Reliable        │          │ Fast             │
-│ Connection-based│          │ Connectionless   │
+│ Connection-based│          │ Connection-less   │
 │ Ordered delivery│          │ No ordering      │
 │ Error checking  │          │ No error recovery│
 └─────────────────┘          └──────────────────┘

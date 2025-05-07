@@ -8,7 +8,7 @@ console.log(` Hello my name is ${userName} and my repo count is ${repoCount}`); 
 // we can insert methods inside it like uppercase or lowercase
 console.log(`My name is ${userName.toUpperCase()}`)
 
-const gameName = new String('raj_game') // here we are creating a string object using "new"
+const gameName = new String('raj-game') // here we are creating a string object using "new"
 console.log(gameName[0]); // here we are accessing the first element of the string i.e an object not array
 console.log(gameName.__proto__); // here we are accessing the prototype of the string i.e object
 
@@ -24,32 +24,22 @@ console.log(gameName.indexOf('a'))
 console.log(gameName.slice(2,4)) // 
 
 console.log(gameName.slice(-8, -6))
+
 // 5.substring
-console.log(gameName.substring(2,4))
-// 6.replace
-console.log(gameName.replace('raj', 'Raj'))
-// 7.split
-console.log(gameName.split('_'))
-// 8.trim
-console.log(gameName.trim())
-// 9.toUpperCase
-console.log(gameName.toUpperCase())
-// its original value did not change 
-// 10.toLowerCase
-console.log(gameName.toLowerCase())
-// 11.concat
-console.log(gameName.concat(' is a good boy'))
+console.log(gameName.substring(0,6)) // substring(-5,6)=> substring(0,6) negative value consider as 0
 
-const anotherString = gameName.slice(-2,4)
-console.log(anotherString);
+// 6. trim and replace methods
+// sometimes we dont need spaces while storing values like in password
+const newStringOne="    hilt"
+console.log(newStringOne)
+console.log(newStringOne.trim())
 
-const newStringOne = " hitesh    "
-console.log(newStringOne);
-console.log(newStringOne.trim()); // this will remove the spaces from the start and end of the string
-const newStringTwo = newStringOne.trim()
+// const url ='https://kumud.com/kumud raj' // browser dont understand spaces and add%20 instead of space so what will we do to replace it 
+const url ='https://kumud.com//kumud%20raj'
+console.log(url.replace('%20','_'))
 
-const url = "https://www.google.com"
+//lets find out if something is include in that const value
+console.log(url.includes('kumud')) // true
+console.log(url.includes('Kumud')) // false
 
-console.log(url.replace('%20', '_')); // this will replace the %20 with space
-
-console.log(url.includes('google')); // this will check if the string contains google or not
+console.log(gameName.split('-')); // before raj-game after 'raj' 'game'
