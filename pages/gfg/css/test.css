@@ -1,0 +1,9 @@
+
+.background{
+    height: 600px;
+    width: 600px;
+background-image: url(../image/flower-7345435_1280.jpg);
+background-size: contain;
+background-repeat: no-repeat;
+background-position:right;
+}

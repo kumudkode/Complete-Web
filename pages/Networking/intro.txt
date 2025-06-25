@@ -1,0 +1,200 @@
+HTTP: Hyper Text Transfer Protocol
+protocol: to computer m jitni bhi chije aayi h wo kahi nhi kahi real world se link h uska.
+e.g army protocol, police protocol
+
+Protocols are Set of rules or set of instructions
+
+Hypertext: those text that have hyper links or links that goes to different pages when internet came. or web documents
+
+" protocol used to transfer HyperText "
+=======================================================================
+cookies vs cache diff?  both are diff concepts
+
+Cookies: Cookies are small pieces of data stored on the client-side (browser) that can be used to remember user preferences, login information, and other session-related data. When a user visits a website, the server can send a cookie to the browser, which is then sent back to the server with each subsequent request. This allows the server to recognize the user and maintain state across multiple requests.
+
+Cache: Cache is a temporary storage area that stores frequently accessed data to improve performance. When a user visits a website, the browser may store certain resources (such as images, scripts, and stylesheets) in the cache. This allows the browser to load these resources faster on subsequent visits, reducing the need to download them again from the server.
+=======================================================================
+Human Readable:
+   1. Network Tab visibility
+   2. Inspect element
+   3. page source code
+===========================================================
+Stateless protocols:
+jab hum khelte h to kahi pause kar dete h aur fir waha se resume ho jata h next time open karte h to....
+ya fir jab movie/videos dekhte h to jaha stop kar dete h fir uske baadh waha se continue karte h jab dubara uspe aate h to.
+
+matlab ye h ki hum uski state maintain kar rhe h.
+lekin jab bhi state maintain nahi hoti h to usko bolte h stateless protocol kehte h.
+
+e.g. jab hum kisi website pe jaate h to us website ko nahi pata ki hum pehle bhi aaye the ya nahi.
+So,
+
+everytime you visit a page, you are a new user.
+
+http aaj tak kabhi state maintain nahi kiya h.
+HTTP is a stateless protocol.
+HTTP is a stateless protocol, meaning that each request from a client to a server is treated as an independent transaction. The server does not retain any information about previous requests, which allows for a simpler and faster communication process. However, this also means that additional mechanisms, such as cookies or sessions, are often used to maintain state across multiple requests.
+
+Then how youtube remembers you?
+Cookies: Cookies are small pieces of data stored on the client-side (browser) that can be used to remember user preferences, login information, and other session-related data. When a user visits a website, the server can send a cookie to the browser, which is then sent back to the server with each subsequent request. This allows the server to recognize the user and maintain state across multiple requests.
+
+cookie is just an information 
+
+or data that is stored in the browser.
+--------------------------------------------------------
+Sessions: Sessions are server-side storage mechanisms that allow for the temporary storage of user data during a single visit to a website. When a user logs in, the server creates a session and assigns it a unique session ID. This ID is sent to the client as a cookie, and the server uses it to retrieve the user's session data for each request. Sessions are typically used for storing sensitive information, such as authentication tokens or shopping cart contents.
+
+==========================================================
+Https header is trah ke information bhejta h:
+1. Client kon h ios/android/windows
+2. Browser information
+3. Date and time
+4. Cookie to store
+
+=======================================================
+Request - Response model:
+
+   Browser ---------- GET
+   |
+   |----------------- Request ---------------------> Web Server
+   |                                                |
+   |<---------------- Response ---------------------|
+   |
+   |----------------- Render ---------------------> Browser
+
+jab hum browser me koi url type karte h to wo request bhejta h server ko.
+Request: 
+   1. URL
+   2. Method
+   3. Headers
+   4. Body
+response 
+   1. Status code
+   2. Headers
+   3. Body
+
+
+Types of request: [GET, POST, PUT, DELETE]
+ 
+ Response code [200, 404, 500]
+200: OK
+404: Not Found
+500: Internal Server Error
+===========================================================
+---> What action to perform on the server?
+GET: Retrieve data from the server
+POST: Send data to the server
+PUT: Update existing data on the server
+DELETE: Remove data from the server
+
+==============================================================
+History of HTTP:
+---> HTTP/0.9: The first version of HTTP, which was a simple protocol for transferring HTML documents. It only supported GET requests and did not include headers or status codes.
+
+---> HTTP/1.0: Introduced in 1996, this version added support for headers, status codes, and the ability to send data in both directions (request and response). It also introduced the concept of persistent connections, allowing multiple requests to be sent over a single connection.
+
+---> HTTP/1.1: Released in 1999, this version improved upon HTTP/1.0 by adding support for chunked transfer encoding, caching, and more robust error handling. It also introduced the concept of keep-alive connections, allowing multiple requests to be sent over a single connection without needing to close and reopen it.
+
+---> HTTP/2: Introduced in 2015, this version focused on improving performance and reducing latency. It introduced features such as multiplexing (allowing multiple requests to be sent simultaneously over a single connection), header compression, and server push (allowing the server to send resources to the client before they are requested).
+
+---> HTTP/3: The latest version of HTTP, which is currently being developed. It is based on QUIC (Quick UDP Internet Connections), a transport layer protocol that aims to improve performance and security. HTTP/3 is designed to reduce latency and improve connection reliability, especially in mobile and high-latency environments.
+
+
+
+================================================================
+
+HTTP/2
+
+
+---> http means hyper text transfer protocol
+      ---> http/1:1 is a fallback & is still used
+      " fallback means backup so, if http/2 is not supported then it will use http/1:1 "
+      ----> http/2 is a binary protocol means it uses 0 and 1
+---> uses Compression
+---> uses multiplexing (many files at same time)
+---> uses encryption (https)
+     In AWS, we don't have to use https for internal communication
+encryption means ABC = LHK means its original text changes to any other things.
+
+==================================================================
+Hum AWS pe https use nhi karte aisa kyu?
+---> AWS ke andar humare paas ek load balancer hota h jo ki https ko http me convert kar deta h.
+ thats why in aws we dont have to use https for internal communication.
+
+internal communication m https use nahi hota h kyuki wo sirf external communication ke liye hota h bahar se aane wale data ko secure karne ke liye hota h. 
+
+let's look into internal communication
+---> humare pass ek abc data h jo kyc banega aur fir humare server ko milega kyc aur fir wo abc me convert hoga
+
+--> har chij ki compute cost aati h agar computer 2+2 bhi karta h to uski bhi cost aati h.
+===================================================================
+What is Transport Layer Security (TLS)?
+HTTPS bas ek market gimmick h
+
+TLS( Transport Layer Security) ek cryptographic protocol h jo ki internet par data ko secure karne ke liye use hota h. Ye data ko encrypt karta h aur ensure karta h ki data transfer ke dauran koi bhi unauthorized access na ho.
+aur use hum HTTP with S ya HTTPS kehte h.
+TLS ka use humare paas 2 chijon ke liye hota h: 
+1. Authentication: Ye ensure karta h ki hum jis server se connect ho rahe h wo server sahi h ya nahi.
+2. Encryption: Ye data ko encrypt karta h taaki koi bhi unauthorized access na ho.
+==================================================================
+    HTTPS = HTTP + TLS
+===================================================================
+User Agent (Browser): wo agent jo server ko request bhej rha h wo browser bhi ho sakta h, terminal bhi ho sakta h, ya koi aur bhi ho sakta h.
+---------------------------------------------------------------
+
+TCP(Transmission Control Protocol): Ye protocol data ko packets me divide karta h aur unhe reliable tarike se SEND karta h. jaise ki ek parcel ko chote chote boxes me pack karna aur unhe bhejna.
+
+UDP(User Datagram Protocol): Ye protocol data ko packets me divide karta h lekin ye reliable nahi hota h. jaise ki ek parcel ko bina boxes me pack kiye bhejna.
+
+FTP(File Transfer Protocol): Ye protocol files ko transfer karne ke liye use hota h. files jaise ki images, videos, documents, etc.
+
+IP(Internet Protocol): Ye protocol data packets ko route karne ke liye use hota h. jaise ki ek parcel ko sahi address par bhejna.
+IP Address: Ye ek unique address hota h jo har device ko internet par assign kiya jata h. jaise ki ek ghar ka address.
+
+url(Uniform Resource Locator) ya ENDpoint: Ye web page ka address hota h.
+
+DNS(Domain Name System): Ye system domain names ko IP addresses me convert karta h. points URL to IP address.
+jaise ki ek ghar ka naam uska address hota h.
+DNS kaam karta h ki jab hum kisi website ka naam type karte h to wo uska IP address dhundta h aur usse connect karta h.
+
+
+SMTP(Simple Mail Transfer Protocol): Ye protocol emails ko transfer karne ke liye use hota h.
+
+IMAP(Internet Message Access Protocol): Ye protocol emails ko access karne ke liye use hota h.
+
+POP(Post Office Protocol): Ye protocol emails ko download karne ke liye use hota h.
+
+header(pass additional information): Ye request ya response ke sath additional information bhejne ke liye use hota h. jaise ki content type, content length, user agent, etc.
+
+payload: Ye request ya response ka main content hota h. jaise ki HTML, JSON, XML, etc.
+
+example of header and payload:
+jaise ki factory se koi product nikalta h to uska header hota h ki ye product kaunse factory se aaya h aur payload hota h ki ye product kya hai. product ka naam, price, etc.
+---------------------------------------------------------------
+
+
+cache: Ye ek temporary storage hota h jo frequently accessed data ko store karta h taaki usse jaldi access kiya ja sake. jaise ki ek library me books ka collection.
+---------------------------------------------------------------
+SUMMARY TIME ::::::::::::::::::::::::::::::::::::::::
+Browser--------------------------------------------- Server
+   |----------------- Request ---------------------> Web Server
+   |                                                |
+   |<---------------- Response ---------------------|
+   |
+   |----------------- Render ---------------------> Browser
+
+browser and server dono hi ek computer ya software h.
+--> setup TCP connection
+---> exchange TLS certificate or https 
+---> send verb + URL + Data + Headers + Cookies like broswer konsa tha, ip kya thi 
+---> receive response with status code and data (Img, csv, json, etc)
+---> render the data
+---> close the TCP connection
+--------------------------------------------------------------
+Server se kaise request bheju
+kya kya tarike se request bheju
+data kaise loon.
+--------------------------------------------------------------
+
+
+
