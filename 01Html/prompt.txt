@@ -1,0 +1,14 @@
+Please create an HTML page with a Spider-Man themed design (red and blue color scheme) for an educational/tutorial website. Include:
+
+1. Responsive navigation bar with spider icon
+2. Header with gradient background
+3. Content sections with:
+    - Icon headers
+    - Code examples in formatted blocks
+    - Interactive demos
+    - Spider-web styled bullet points
+4. Animation effects (web-swing, hover transitions)
+5. Styled footer with social links
+6. Back-to-top button functionality
+
+Use the same styling approach with CSS variables, section borders, card-like content blocks, web pattern backgrounds, and transitions as in the Spider-Code tutorial page.

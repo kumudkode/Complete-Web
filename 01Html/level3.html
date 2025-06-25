@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Level 3</h1>
+    <p>This is the third level of the HTML structure.</p>
+    <p> 
+    <ins>
+        1. Tables
+        2. Semantics in Tables
+        3. Colspan & Rowspan Attributes
+        4. Practice Qs
+        5. Forms in Html
+        6. Input - form element
+        7. Placeholders and Labels
+        8. Button element
+        9. Name Attributes
+        10. Practice Qs 
+        11. Checkbox - Input element
+        12. Radio - Input element
+        13. Select - Input element
+        14. Range - Input element
+        15. Text Area
+        16. Practice Qs 
+        17. Assignment Questions
+    </ins>
+    </p>
+    <hr>
+    <h3> 1. Tables</h3>
+    <p>combination of Rows and Columns</p>
+    <table border="black">
+        <caption> Food Menu </caption>
+        <tr>
+            <th> Items </th>
+            <th> Price </th>
+        </tr>
+        <tr>
+            <td> Maza </td>
+            <td> ₹20.00</td>
+        </tr>
+         <tr>
+            <td> Frooti </td>
+            <td> ₹20.00</td>
+        </tr>
+         <tr>
+            <td> Samosa </td>
+            <td> ₹10.00</td>
+        </tr>
+    </table>
+    <br>
+    <hr>
+    <h3> 2. Semantics in Tables </h3>
+
+    <table border="black">
+        <caption> Food Menu </caption>
+        <!-- Table Header -->
+        <thead>
+        <tr>
+            <th> Items </th>
+            <th> Price </th>
+        </tr>
+        </thead>
+        <!-- Table Body -->
+        <tbody>
+        <tr>
+            <td> Maza </td>
+            <td> ₹20.00</td>
+        </tr>
+         <tr>
+            <td> Frooti </td>
+            <td> ₹20.00</td>
+        </tr>
+         <tr>
+            <td> Samosa </td>
+            <td> ₹10.00</td>
+        </tr>
+        </tbody>
+        <!-- Table footer -->
+        <tfoot>
+            <td> Total Price </td>
+            <td> ₹50 </td>
+        </tfoot>
+    </table>
+   
+    <br>
+    <hr>
+    <h3> 3. Colspan & Rowspan Attributes </h3>
+    <p> we need it where we have to deal with multiple rows and multiple columns </p>
+
+    
+    <table border="black">
+        <caption> Food Menu </caption>
+        <!-- Table Header -->
+        <thead>
+        <tr>
+            <th rowspan="2"> Items </th>
+            <th colspan="2"> Price </th>
+        </tr>
+        <tr>
+            <th> INR </th>
+            <th> USD </th>
+        </tr>
+        </thead>
+        <!-- Table Body -->
+        <tbody>
+        <tr>
+            <td> Maza </td>
+            <td> ₹20.00</td>
+            <td> $0.23</td>
+        </tr>
+         <tr>
+            <td> Frooti </td>
+            <td> ₹20.00</td>
+            <td> $0.23</td>
+        </tr>
+         <tr>
+            <td> Samosa </td>
+            <td> ₹10.00</td>
+            <td> $0.12</td>
+        </tr>
+        </tbody>
+        <!-- Table footer -->
+        <tfoot>
+            <td> Total Price </td>
+            <td> ₹50 </td>
+            <td> $0.58 </td>
+        </tfoot>
+    </table>
+ <br> <hr>
+    <p> ---------FORMS---------------</p>
+    <h3> 5. Forms in Html </h3>
+    <!-- 
+    Action Attribute
+    Action attribute is used to define what action needs to be performed when a form is submitted or where the form data should be sent
+
+    <form action = "/action.php">
+    <form action = "/action">
+        
+    -->
+    <form action = "/action">
+
+    </form>
+
+    <br><hr>
+    <h4> 6. Input - form element </h4>
+    <p> => Input </p>
+    <p> +> used to create multiple form controls</p>
+    <p> +> there are multiple inputs that can be created using type attribute </p>
+
+    <form action="/action">
+        <input type="text"> <br> <br>
+        <input type="email"> <br> <br>
+        <input type="password"> <br> <br>
+        <input type="number"> <br> <br>
+        <input type="time"> <br> <br>
+        <input type="color">
+    </form>
+
+    <br><hr>
+    <h4> Form elements </h4>
+    <p> placeholders: just add background text in the box so the box does not looks empty </p>
+    <form action ="/action">
+        <input type="text" placeholder=" UserName">
+        <input type="password" placeholder ="Password">
+    </form>
+ <br> <hr><br> 
+
+    <h5> Label </h5>
+    <p> Label element represents a caption for an items in a user interface </p>
+    <p> Label helps to identify input that it represents to this group </p>
+
+    <form action ="action">
+        <label> 
+        UserName <!-- If we click username it will reflects that it belongs to below input text properties-->
+        <input type ="text" placeholder="UserName">
+        </label>
+        <br>
+        <label>
+            Password
+            <input type="text" placeholder="Password">
+        </label>
+          </form>
+<br><br><hr>
+<p> label can be written using for attribute using which we can denotes its types and make connections between label and inputs</p>
+
+<br>
+<h5>Form Elements for label</h5>
+
+<p>
+    id is a unique name and in forms 
+    whenever we generate  for="username" it directly correlates to id. So, for="UserName" and id ="UserName" should be same if we wanna connect both
+    label and input together
+</p>
+<form action = "/action">
+    <label for="userid">UserId</label>
+    <input type="text" id="userid" placeholder="UserName">
+<br>
+    <label for="pass">Password</label>
+    <input type="password" id="pass" 
+    placeholder="Password">
+
+
+</form>
+
+
+  
+    
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
