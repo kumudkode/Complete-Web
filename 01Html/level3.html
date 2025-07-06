@@ -193,18 +193,193 @@
 <p>
     id is a unique name and in forms 
     whenever we generate  for="username" it directly correlates to id. So, for="UserName" and id ="UserName" should be same if we wanna connect both
-    label and input together
+    label and input together.... using for and id
 </p>
 <form action = "/action">
+    <div>
     <label for="userid">UserId</label>
     <input type="text" id="userid" placeholder="UserName">
+    </div>
 <br>
+    <div>
     <label for="pass">Password</label>
     <input type="password" id="pass" 
     placeholder="Password">
+    </div>
+<br>
+    <div>
+    <label for="age"> Enter Age : </label>
+    <input type="number" placeholder="age" id="age">
+    </div>
 
+    <div>
+    <button>Submit</button>
+    </div>
+    <!-- After submitting  form button all the data redirect to form action ='/action' this location -->
+     <div>
+        <p>Three types of button but by default it submit data if it used inside forms</p>
+        <button> type 1 </button>  <!-- By default -->
+        <button type="button"> type 2 </button>
+        <button type="submit"> type 3 </button>
+        <button type="reset"> type 4 </button>
+
+     </div>
+     <div>
+        <p> We can create button also like this </p>
+        <p> but its not a good way to do so in html </p>
+     <input type="submit">
+     <input type="submit" value="click me">
+     </div>
+</form>
+<br><hr><br>
+<h4> Using name attribute passing information</h4>
+<p>name attribute helps in sending information to the server or backened that we submitted in "actions"</p>
+<form action="/server">
+    <div>
+        <label for="UserId"> Username: </label>
+        <input type="text" placeholder="Enter Username" id="UserId" name="query">
+    </div>
+    <div>
+        <label for="pass"> Password: </label>
+        <input type="password" placeholder = "Enter Password" id="pass" name="passw">
+        <!-- currently we are using " get request " so our password is visible but later on it will not we will learn that in js -->
+    </div>
+    <hr>
 
 </form>
+
+<form type="sub" action="https://www.youtube.com/results?">
+
+    <label for="youtube"> Youtube </label>
+
+    <input type="text" placeholder="Search on Youtube" id="youtube" name="search_query"> 
+    <!-- search_query = is use in google -->
+    <button type="sub"> Search </button>
+
+</form>
+<hr>
+
+<form action="https://www.google.com/search">
+    <label for="google"> Google </label>
+    <input type="text" placeholder="Search on Google" id="google" name="q">
+    <button> Search </button>
+</form>
+
+<hr> <br>
+<form action="/servers">
+<input type="checkbox" id="age" name="age" /> 
+<!-- for unchecked by default -->
+<!-- <input type="checkbox" name="age" id="age" checked/> 
+for default checked  and name = "age " will submit
+--> 
+
+<label for="age"> I am 18+ </label>
+
+<br> <hr>
+
+<div>
+    <input type="radio" id="apple" name="fruit" value="apple">
+    <label for="apple"> Apple </label> <br>
+
+     <input type="radio" id="banana" name="fruit" value="banana">
+    <label for="banana"> Banana </label> <br>
+
+     <input type="radio" id="guava" name="fruit" value="guava">
+    <label for="guava"> Guava </label> <br>
+
+    <!-- value attribute denotes what values are in fruit so answer is fruit = whatever we check -->
+
+    <!--  if we want that only one check from all fruits name then  make " name attribute similar " e.g here name of each input is "fruit"-->
+
+</div>
+<button> submit </button> 
+<!-- applied to age and fruit check search bar in browser -->
+</form>
+<div>
+    <form action="/check">
+    <input type="checkbox" name="fruit" id="banana" value="banana">
+    <label for="banana">banana</label>
+    <input type="checkbox" name="fruit" id="apple" value="apple">
+    <label for="apple">apple</label>
+    <input type="checkbox" name="fruit" id="mango" value="mango">
+    <label for="mango">mango</label>
+    <button>submit</button>
+    </form>
+</div>
+<div>
+    <form action="/drop">
+   <p>Choose your profession</p>
+   <select name="profession" id="profession">
+    <option value="student">Student</option>
+    <option value="Developer">Developer</option>
+    <option value="teacher">Teacher</option>
+    </select>
+    <button>submit</button> 
+    <!-- if you wanna submit something put button inside form tags -->
+    </form>
+
+</div>
+<div>
+    <form action="/dropdown">
+   <p>Choose your profession</p>
+   <select name="profession" id="profession">
+    <option> Select your option </option>
+    <option value="student">Student</option>
+    <option value="Developer">Developer</option>
+    <option value="teacher">Teacher</option>
+    </select>
+    <button>submit</button> 
+    <!-- if you wanna submit something put button inside form tags -->
+    </form>
+
+</div>
+<div>
+    <form action="/dropdown2">
+   <p>Choose your profession</p>
+   <select name="profession" id="profession">
+    <option value="student">Student</option>
+    <option value="Developer" selected>Developer</option>
+    <option value="teacher">Teacher</option>
+    </select>
+    <button>submit</button> 
+    <!-- if you wanna submit something put button inside form tags -->
+    </form>
+</div>
+<hr><br>
+<div>
+    <form action="/range">
+        <label for="vol">volume</label>
+        <input type="range"id="vol" name="volume" min="0" max="100"> 
+         <label for="vol2">volume2</label>
+        <input type="range"id="vol2" name="volume" min="0" max="100" step="10"> 
+        <label for="vol2">volume2</label>
+        <input type="range"id="vol2" name="volume" min="0" max="100" step="10" value="30"> 
+        <button>submit</button>
+        <!-- http://127.0.0.1:5500/range?volume=50 -->
+         <!-- using "step attribute" we can change value 10 by 10 -->
+
+    </form>
+</div>
+<hr><br>
+<div>
+    <form action="/textarea">
+    <label for="feedback"> Give yor feedback :</label>
+
+    <input type=textarea id="feedback" placeholder=" how was your experience?" name="feedback" rows="5">
+    <br>
+    <br>
+
+    <label for="draw"> Type your story </label>
+    <textarea name="art" id="draw" rows="5" cols="5">
+    </textarea>
+    <button>submit</button>
+    </form>
+</div>
+
+
+
+
+
 
 
   
