@@ -1,0 +1,15 @@
+h1{
+    color: #ff0000
+}
+h2{ color: white;
+    background-color: blueviolet;
+}
+p.foreground{
+    color: blue;
+}
+p.background{
+    color: rgb(255,150,0);
+    color:#ff9000;
+    color:#0000ff;
+    background-color:green;
+}

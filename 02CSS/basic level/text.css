@@ -1,0 +1,78 @@
+h1{
+    /* width: 50%;
+    border: solid; */
+    text-align: center;
+    /* text properties are relative to its parent here parent is h1{  } and its width is 50 percent */
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+h3{
+    text-decoration: double blue overline;
+    text-align: end;
+    font-family: 'Courier New', Courier, monospace; 
+    /* backups  */
+}
+button{
+background-color: tomato;
+}
+
+p{  font-family: sans-serif;
+
+    text-decoration: greenyellow underline;
+    text-align:justify;
+    /* Describes how inline contents of a block are horizontally aligned if the contents do not completely fill the line box. */
+
+    /* font-weight: lighter; */
+    /* /* font-weight: bolder;  */
+    /* these are relative to its parent like  here its h2*/ 
+}
+h2{
+    text-decoration: wavy overline yellow;
+    font-weight: normal; 
+    /* 400 = normal != bold */
+    /* font-weight: 400; */
+    /* font-weight: 100; */
+    /* font-weight: 800; */
+}
+p.line-height{
+    line-height: 2.5;
+     /* line-height: normal;  */
+    /* control vertical spacing  */
+    letter-spacing: 1px;
+    /* letter-spacing: normal; */
+    /* control horizontal each letters spacing */
+
+}
+
+/* Units 
+Absolute Units | Relative Units
+px             | %
+pt             | em
+pc             | rem
+cm             | ch
+mm             | vh
+in             | vw + many more
+
+=> Absolute Units are always same in any places like 5km in USA and 5km in India both are same 
+
+1 inch = 96px;
+1 inch = 72pt;
+12 pt = 1 pc;
+
+=> Relative Units are always relation with some values like if i set 50% of width then it means its 50% half of screen among 100% is total.
+-> em means current em relation with other em designs
+-> rem means parent ke relative kya size hone wala h font ka
+
+=> px pixels = mostly common used absolute units e.g font-size: 20px;
+=> NOT SUITABLE FOR RESPONSIVE WEBSITES use rem or em for that
+
+*/
+ /* Font Family
+ specifies a prioritized list of one or more font family names
+
+ font - family arial;
+ 
+ 
+ */

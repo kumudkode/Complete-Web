@@ -1,0 +1,14 @@
+/* Descendant selectors */
+#des a{
+    color: red;
+}
+div a{
+    color: green;
+    background-color: black;
+}
+nav ul li {
+    color: pink;
+}
+nav ul li a{
+    color: brown;
+}
