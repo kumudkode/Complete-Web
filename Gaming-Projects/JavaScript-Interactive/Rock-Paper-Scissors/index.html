@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>✂️ Rock Paper Scissors</h1>
+            <p>The classic hand game reimagined for the web!</p>
+        </header>
+        
+        <div class="score-board">
+            <div class="score-item">
+                <h3>You</h3>
+                <span id="player-score" class="score-number">0</span>
+            </div>
+            <div class="score-item">
+                <h3>Computer</h3>
+                <span id="computer-score" class="score-number">0</span>
+            </div>
+            <div class="score-item">
+                <h3>Round</h3>
+                <span id="round-counter" class="score-number">1</span>
+            </div>
+        </div>
+        
+        <div class="battle-arena">
+            <div class="player-section">
+                <h3>Your Choice</h3>
+                <div id="player-choice" class="choice-display">
+                    <span class="choice-emoji">❓</span>
+                    <span class="choice-text">Choose Your Weapon!</span>
+                </div>
+            </div>
+            
+            <div class="vs-section">
+                <div class="vs-text">VS</div>
+                <div id="battle-result" class="battle-result"></div>
+            </div>
+            
+            <div class="computer-section">
+                <h3>Computer's Choice</h3>
+                <div id="computer-choice" class="choice-display">
+                    <span class="choice-emoji">🤖</span>
+                    <span class="choice-text">Thinking...</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="game-controls">
+            <div class="choices">
+                <button class="choice-btn" data-choice="rock">
+                    <span class="choice-emoji">🪨</span>
+                    <span class="choice-name">Rock</span>
+                </button>
+                <button class="choice-btn" data-choice="paper">
+                    <span class="choice-emoji">📄</span>
+                    <span class="choice-name">Paper</span>
+                </button>
+                <button class="choice-btn" data-choice="scissors">
+                    <span class="choice-emoji">✂️</span>
+                    <span class="choice-name">Scissors</span>
+                </button>
+            </div>
+            
+            <div class="control-buttons">
+                <button id="reset-game" class="control-btn">🔄 New Game</button>
+                <button id="show-rules" class="control-btn">📋 Rules</button>
+            </div>
+        </div>
+        
+        <div id="game-message" class="game-message"></div>
+        
+        <div id="rules-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>🎮 Game Rules</h2>
+                <div class="rules-content">
+                    <div class="rule">
+                        <span class="rule-emoji">🪨</span>
+                        <strong>Rock</strong> crushes Scissors
+                    </div>
+                    <div class="rule">
+                        <span class="rule-emoji">📄</span>
+                        <strong>Paper</strong> covers Rock
+                    </div>
+                    <div class="rule">
+                        <span class="rule-emoji">✂️</span>
+                        <strong>Scissors</strong> cuts Paper
+                    </div>
+                    <div class="rule-note">
+                        <p><strong>Win Condition:</strong> First to 5 points wins the game!</p>
+                        <p><strong>Tie:</strong> Both choose the same? It's a draw!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="game-footer">
+            <h3>JavaScript Concepts in Action:</h3>
+            <div class="concepts-grid">
+                <div class="concept">
+                    <strong>🎲 Random Generation:</strong>
+                    <p>Math.random() for computer choices</p>
+                </div>
+                <div class="concept">
+                    <strong>🔄 Event Delegation:</strong>
+                    <p>Handling multiple button clicks efficiently</p>
+                </div>
+                <div class="concept">
+                    <strong>🎨 Dynamic Styling:</strong>
+                    <p>CSS class manipulation based on game state</p>
+                </div>
+                <div class="concept">
+                    <strong>💾 State Management:</strong>
+                    <p>Tracking scores, rounds, and game progression</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

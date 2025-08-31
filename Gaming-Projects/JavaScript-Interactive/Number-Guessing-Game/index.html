@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>🎲 Number Guessing Game</h1>
+            <p>I'm thinking of a number between 1 and 100. Can you guess it?</p>
+        </header>
+        
+        <div class="game-stats">
+            <div class="stat-item">
+                <span class="stat-label">Attempts:</span>
+                <span id="attempts" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Best Score:</span>
+                <span id="best-score" class="stat-value">--</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Games Played:</span>
+                <span id="games-played" class="stat-value">0</span>
+            </div>
+        </div>
+        
+        <div class="game-area">
+            <div class="number-display">
+                <div class="mystery-number">
+                    <span id="mystery-display">?</span>
+                </div>
+            </div>
+            
+            <div class="guess-section">
+                <div class="input-group">
+                    <input type="number" id="guess-input" min="1" max="100" placeholder="Enter your guess...">
+                    <button id="submit-guess" class="guess-btn">🎯 Guess</button>
+                </div>
+                
+                <div class="range-display">
+                    <span>Range: </span>
+                    <span id="range-min">1</span>
+                    <span> - </span>
+                    <span id="range-max">100</span>
+                </div>
+            </div>
+            
+            <div id="feedback" class="feedback"></div>
+            
+            <div class="hint-section">
+                <button id="hint-btn" class="control-btn">💡 Get Hint</button>
+                <div id="hint-display" class="hint-display"></div>
+            </div>
+        </div>
+        
+        <div class="game-controls">
+            <button id="new-game-btn" class="control-btn">🎮 New Game</button>
+            <button id="difficulty-btn" class="control-btn">⚙️ Difficulty</button>
+            <button id="stats-btn" class="control-btn">📊 Statistics</button>
+        </div>
+        
+        <div id="difficulty-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>🎯 Choose Difficulty</h2>
+                <div class="difficulty-options">
+                    <button class="difficulty-option" data-difficulty="easy">
+                        <h3>🟢 Easy</h3>
+                        <p>1-50 range, unlimited hints</p>
+                    </button>
+                    <button class="difficulty-option" data-difficulty="medium">
+                        <h3>🟡 Medium</h3>
+                        <p>1-100 range, 3 hints</p>
+                    </button>
+                    <button class="difficulty-option active" data-difficulty="hard">
+                        <h3>🔴 Hard</h3>
+                        <p>1-100 range, 1 hint</p>
+                    </button>
+                    <button class="difficulty-option" data-difficulty="expert">
+                        <h3>🟣 Expert</h3>
+                        <p>1-200 range, no hints</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="stats-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>📊 Game Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stats-item">
+                        <h3>Total Games</h3>
+                        <span id="total-games">0</span>
+                    </div>
+                    <div class="stats-item">
+                        <h3>Games Won</h3>
+                        <span id="games-won">0</span>
+                    </div>
+                    <div class="stats-item">
+                        <h3>Win Rate</h3>
+                        <span id="win-rate">0%</span>
+                    </div>
+                    <div class="stats-item">
+                        <h3>Average Attempts</h3>
+                        <span id="avg-attempts">0</span>
+                    </div>
+                    <div class="stats-item">
+                        <h3>Best Score</h3>
+                        <span id="best-score-stats">--</span>
+                    </div>
+                    <div class="stats-item">
+                        <h3>Current Streak</h3>
+                        <span id="current-streak">0</span>
+                    </div>
+                </div>
+                <button id="reset-stats" class="control-btn danger">🗑️ Reset Statistics</button>
+            </div>
+        </div>
+        
+        <footer class="game-footer">
+            <h3>JavaScript Learning Objectives:</h3>
+            <div class="concepts-grid">
+                <div class="concept">
+                    <strong>🎲 Random Numbers:</strong>
+                    <p>Math.random() and Math.floor() for number generation</p>
+                </div>
+                <div class="concept">
+                    <strong>📝 Input Validation:</strong>
+                    <p>Form validation and user input sanitization</p>
+                </div>
+                <div class="concept">
+                    <strong>🔄 Conditional Logic:</strong>
+                    <p>Complex if/else chains and comparison operators</p>
+                </div>
+                <div class="concept">
+                    <strong>📊 Data Persistence:</strong>
+                    <p>LocalStorage for game statistics and progress</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.game-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.game-header {
+    text-align: center;
+    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.game-header h1 {
+    color: #4a5568;
+    margin-bottom: 10px;
+    font-size: 2.5em;
+}
+
+.game-header p {
+    color: #718096;
+    font-size: 1.2em;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.target {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+}
+
+.target:hover {
+    transform: scale(0) rotate(360deg);
+    opacity: 0;
+    animation: none;
+}
+
+/* Individual target animations for variety */
+.target-1:hover { transform: scale(0) rotate(180deg); }
+.target-2:hover { transform: scale(0) rotate(-180deg); }
+.target-3:hover { transform: scale(0) rotate(270deg); }
+.target-4:hover { transform: scale(0) rotate(-270deg); }
+.target-5:hover { transform: scale(0) rotate(360deg); }
+.target-6:hover { transform: scale(0) rotate(-360deg); }
+.target-7:hover { transform: scale(0) rotate(450deg); }
+.target-8:hover { transform: scale(0) rotate(-450deg); }
+.target-9:hover { transform: scale(0) rotate(540deg); }
+
+.victory-message {
+    text-align: center;
+    background: rgba(46, 204, 113, 0.9);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.5s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.victory-message h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.refresh-hint {
+    font-style: italic;
+    margin-top: 10px;
+    opacity: 0.8;
+}
+
+/* Show victory message when all targets are hovered */
+.target:hover ~ .target:hover ~ .target:hover ~ .target:hover ~ .target:hover ~ .target:hover ~ .target:hover ~ .target:hover ~ .target:hover ~ .victory-message,
+.game-board:has(.target:hover):has(.target:hover):has(.target:hover):has(.target:hover):has(.target:hover):has(.target:hover):has(.target:hover):has(.target:hover):has(.target:hover) ~ .victory-message {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.game-footer {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.game-footer h3 {
+    color: #4a5568;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.game-footer ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+}
+
+.game-footer li {
+    background: rgba(102, 126, 234, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+}
+
+.game-footer strong {
+    color: #667eea;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .game-board {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .target {
+        width: 80px;
+        height: 80px;
+        font-size: 2.5em;
+    }
+    
+    .game-header h1 {
+        font-size: 2em;
+    }
+    
+    .game-header p {
+        font-size: 1em;
+    }
+}
