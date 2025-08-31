@@ -1,0 +1,460 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    min-height: 100vh;
+    color: #ecf0f1;
+    overflow-x: hidden;
+}
+
+.game-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.game-header {
+    text-align: center;
+    margin-bottom: 30px;
+    background: rgba(52, 73, 94, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border: 2px solid #3498db;
+}
+
+.game-header h1 {
+    color: #3498db;
+    margin-bottom: 10px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.game-header p {
+    color: #bdc3c7;
+    font-size: 1.2em;
+}
+
+.game-info {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.info-panel {
+    display: flex;
+    gap: 20px;
+    background: rgba(52, 73, 94, 0.8);
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.score-display, .high-score-display, .speed-display {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #ecf0f1;
+}
+
+.score-display span:last-child {
+    color: #2ecc71;
+}
+
+.high-score-display span:last-child {
+    color: #f1c40f;
+}
+
+.speed-display span:last-child {
+    color: #e74c3c;
+}
+
+.game-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-state {
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.game-state.playing {
+    background: linear-gradient(45deg, #27ae60, #2ecc71);
+    animation: none;
+}
+
+.game-state.paused {
+    background: linear-gradient(45deg, #f39c12, #f1c40f);
+    animation: none;
+}
+
+.game-area {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+#game-canvas {
+    background: #1a252f;
+    border: 4px solid #3498db;
+    border-radius: 10px;
+    box-shadow: 
+        0 0 20px rgba(52, 152, 219, 0.3),
+        inset 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.game-over-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(44, 62, 80, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid #e74c3c;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    display: none;
+    min-width: 250px;
+}
+
+.game-over-screen.show {
+    display: block;
+    animation: gameOverFade 0.5s ease-in-out;
+}
+
+@keyframes gameOverFade {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.game-over-screen h2 {
+    color: #e74c3c;
+    margin-bottom: 15px;
+    font-size: 2em;
+}
+
+.game-over-screen p {
+    color: #bdc3c7;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+#final-score {
+    color: #f1c40f;
+    font-weight: bold;
+}
+
+#high-score-message {
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+.game-controls {
+    background: rgba(52, 73, 94, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.control-instructions h3 {
+    color: #3498db;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.controls-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.control-item {
+    color: #bdc3c7;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+.key {
+    background: #34495e;
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid #7f8c8d;
+    font-family: monospace;
+    font-weight: bold;
+    color: #ecf0f1;
+}
+
+.game-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.control-btn {
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+    border: 2px solid transparent;
+}
+
+.control-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+    border-color: #ecf0f1;
+}
+
+.control-btn:active {
+    transform: translateY(0);
+}
+
+.control-btn.danger {
+    background: linear-gradient(45deg, #e74c3c, #c0392b);
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+.control-btn.success {
+    background: linear-gradient(45deg, #27ae60, #2ecc71);
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: #2c3e50;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    border: 2px solid #3498db;
+    color: #ecf0f1;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 2em;
+    font-weight: bold;
+    cursor: pointer;
+    color: #bdc3c7;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #e74c3c;
+}
+
+.modal-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #3498db;
+}
+
+.settings-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: rgba(52, 73, 94, 0.5);
+    border-radius: 8px;
+}
+
+.setting-item label {
+    font-weight: bold;
+    color: #ecf0f1;
+}
+
+.setting-item select {
+    background: #34495e;
+    color: #ecf0f1;
+    border: 1px solid #7f8c8d;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 1em;
+}
+
+.setting-item select:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.game-footer {
+    background: rgba(52, 73, 94, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border: 2px solid #34495e;
+}
+
+.game-footer h3 {
+    color: #3498db;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.concepts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+.concept {
+    background: rgba(44, 62, 80, 0.7);
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 4px solid #3498db;
+    transition: transform 0.3s ease;
+    border: 1px solid #34495e;
+}
+
+.concept:hover {
+    transform: translateY(-2px);
+    border-color: #3498db;
+}
+
+.concept strong {
+    color: #3498db;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.concept p {
+    color: #bdc3c7;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+/* Snake Game Specific Styles */
+.snake-segment {
+    background: #2ecc71;
+    border: 1px solid #27ae60;
+}
+
+.snake-head {
+    background: #e74c3c;
+    border: 1px solid #c0392b;
+}
+
+.food {
+    background: #f1c40f;
+    border: 1px solid #f39c12;
+    border-radius: 50%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .game-container {
+        padding: 15px;
+    }
+    
+    .game-info {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .info-panel {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    #game-canvas {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .controls-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    
+    .game-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .control-btn {
+        width: 200px;
+    }
+    
+    .concepts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .game-header h1 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    #game-canvas {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .game-over-screen {
+        padding: 20px;
+        min-width: 200px;
+    }
+    
+    .modal-content {
+        padding: 20px;
+        margin: 20% auto;
+    }
+}

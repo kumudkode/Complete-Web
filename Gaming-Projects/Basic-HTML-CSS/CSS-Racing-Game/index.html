@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Racing Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>🏁 CSS Racing Championship</h1>
+            <p>Watch the pure CSS animated race! Click the track to control race speed.</p>
+        </header>
+        
+        <div class="race-track" onclick="toggleRaceSpeed()">
+            <div class="finish-line">🏁 FINISH</div>
+            
+            <div class="lane lane-1">
+                <div class="car car-red">🏎️</div>
+            </div>
+            
+            <div class="lane lane-2">
+                <div class="car car-blue">🏎️</div>
+            </div>
+            
+            <div class="lane lane-3">
+                <div class="car car-green">🏎️</div>
+            </div>
+            
+            <div class="lane lane-4">
+                <div class="car car-yellow">🏎️</div>
+            </div>
+            
+            <div class="track-decorations">
+                <div class="cloud cloud-1">☁️</div>
+                <div class="cloud cloud-2">☁️</div>
+                <div class="cloud cloud-3">☁️</div>
+                <div class="tree tree-1">🌳</div>
+                <div class="tree tree-2">🌳</div>
+                <div class="tree tree-3">🌳</div>
+            </div>
+        </div>
+        
+        <div class="race-controls">
+            <button class="control-btn" onclick="resetRace()">🔄 Reset Race</button>
+            <button class="control-btn" onclick="toggleRaceSpeed()">⚡ Toggle Speed</button>
+        </div>
+        
+        <footer class="game-footer">
+            <h3>CSS Concepts Demonstrated:</h3>
+            <div class="concepts-grid">
+                <div class="concept">
+                    <strong>🎨 CSS Animations:</strong>
+                    <p>Keyframe animations for continuous movement</p>
+                </div>
+                <div class="concept">
+                    <strong>⏱️ Animation Timing:</strong>
+                    <p>Different duration and delay for each car</p>
+                </div>
+                <div class="concept">
+                    <strong>🎭 Transform Property:</strong>
+                    <p>Translate for movement and rotation effects</p>
+                </div>
+                <div class="concept">
+                    <strong>📐 CSS Grid & Flexbox:</strong>
+                    <p>Layout structure for race lanes</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function toggleRaceSpeed() {
+            const track = document.querySelector('.race-track');
+            track.classList.toggle('fast-mode');
+        }
+
+        function resetRace() {
+            const cars = document.querySelectorAll('.car');
+            cars.forEach(car => {
+                car.style.animation = 'none';
+                car.offsetHeight; // Trigger reflow
+                car.style.animation = null;
+            });
+        }
+    </script>
+</body>
+</html>

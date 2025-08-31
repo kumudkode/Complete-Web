@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>🐍 Snake Game</h1>
+            <p>Eat the food, grow longer, avoid the walls and yourself!</p>
+        </header>
+        
+        <div class="game-info">
+            <div class="info-panel">
+                <div class="score-display">
+                    <span>Score: </span>
+                    <span id="current-score">0</span>
+                </div>
+                <div class="high-score-display">
+                    <span>High Score: </span>
+                    <span id="high-score">0</span>
+                </div>
+                <div class="speed-display">
+                    <span>Speed: </span>
+                    <span id="speed-level">1</span>
+                </div>
+            </div>
+            
+            <div class="game-status">
+                <div id="game-state" class="game-state">Press Space to Start</div>
+            </div>
+        </div>
+        
+        <div class="game-area">
+            <canvas id="game-canvas" width="400" height="400"></canvas>
+            <div id="game-over-screen" class="game-over-screen">
+                <h2>Game Over!</h2>
+                <p>Your Score: <span id="final-score">0</span></p>
+                <p id="high-score-message"></p>
+                <button id="restart-btn" class="control-btn">🔄 Play Again</button>
+            </div>
+        </div>
+        
+        <div class="game-controls">
+            <div class="control-instructions">
+                <h3>🎮 Controls</h3>
+                <div class="controls-grid">
+                    <div class="control-item">
+                        <span class="key">↑</span> or <span class="key">W</span> - Move Up
+                    </div>
+                    <div class="control-item">
+                        <span class="key">↓</span> or <span class="key">S</span> - Move Down
+                    </div>
+                    <div class="control-item">
+                        <span class="key">←</span> or <span class="key">A</span> - Move Left
+                    </div>
+                    <div class="control-item">
+                        <span class="key">→</span> or <span class="key">D</span> - Move Right
+                    </div>
+                    <div class="control-item">
+                        <span class="key">Space</span> - Start/Pause
+                    </div>
+                </div>
+            </div>
+            
+            <div class="game-buttons">
+                <button id="start-pause-btn" class="control-btn">▶️ Start</button>
+                <button id="reset-btn" class="control-btn">🔄 Reset</button>
+                <button id="settings-btn" class="control-btn">⚙️ Settings</button>
+            </div>
+        </div>
+        
+        <div id="settings-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>⚙️ Game Settings</h2>
+                <div class="settings-content">
+                    <div class="setting-item">
+                        <label for="difficulty">Difficulty:</label>
+                        <select id="difficulty">
+                            <option value="easy">Easy (Slow)</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="hard">Hard (Fast)</option>
+                            <option value="insane">Insane (Very Fast)</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label for="grid-size">Grid Size:</label>
+                        <select id="grid-size">
+                            <option value="16">Large (16x16)</option>
+                            <option value="20" selected>Medium (20x20)</option>
+                            <option value="25">Small (25x25)</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label for="wall-mode">Wall Collision:</label>
+                        <select id="wall-mode">
+                            <option value="death" selected>Game Over</option>
+                            <option value="wrap">Wrap Around</option>
+                        </select>
+                    </div>
+                </div>
+                <button id="apply-settings" class="control-btn">✅ Apply Settings</button>
+            </div>
+        </div>
+        
+        <footer class="game-footer">
+            <h3>Advanced JavaScript Concepts:</h3>
+            <div class="concepts-grid">
+                <div class="concept">
+                    <strong>🎨 HTML5 Canvas:</strong>
+                    <p>2D rendering context, drawing shapes and sprites</p>
+                </div>
+                <div class="concept">
+                    <strong>⏰ Game Loop:</strong>
+                    <p>RequestAnimationFrame for smooth animations</p>
+                </div>
+                <div class="concept">
+                    <strong>🔄 State Management:</strong>
+                    <p>Complex game state with multiple objects</p>
+                </div>
+                <div class="concept">
+                    <strong>📦 Object-Oriented Design:</strong>
+                    <p>Classes for Snake, Food, and Game Engine</p>
+                </div>
+                <div class="concept">
+                    <strong>💾 Local Storage:</strong>
+                    <p>High score persistence and settings</p>
+                </div>
+                <div class="concept">
+                    <strong>🎯 Collision Detection:</strong>
+                    <p>Boundary checking and self-collision</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
