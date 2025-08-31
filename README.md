@@ -74,7 +74,7 @@ Welcome to your comprehensive, level-wise web development learning adventure! Th
 3. What is CORS and why is it important?
 </details>
 
-📁 **Resources**: [Phase 0 Details](./Resources/Phase%200.txt)
+📁 **Resources**: [Phase 0 Details](<./Resources/Phase 0.txt>)
 
 ---
 
@@ -136,7 +136,7 @@ Welcome to your comprehensive, level-wise web development learning adventure! Th
 4. How do you optimize CSS for performance?
 </details>
 
-📁 **Resources**: [Phase 1 Details](./Resources/Phase%201.txt) | [HTML Examples](./01Html/) | [CSS Examples](./02CSS/)
+📁 **Resources**: [Phase 1 Details](<./Resources/Phase 1.txt>) | [HTML Examples](./01Html/) | [CSS Examples](./02CSS/)
 
 ---
 
@@ -206,7 +206,7 @@ Welcome to your comprehensive, level-wise web development learning adventure! Th
 5. Explain debouncing and throttling with examples
 </details>
 
-📁 **Resources**: [Phase 2 Details](./Resources/phase%202.txt) | [JavaScript Examples](./03Javascript/)
+📁 **Resources**: [Phase 2 Details](<./Resources/phase 2.txt>) | [JavaScript Examples](./03Javascript/)
 
 ---
 
